@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NanumSquareB.otf">
+            <string>NanumSquareOTFB</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListTableViewCell" rowHeight="164" id="KGk-i7-Jjw" customClass="ListTableViewCell" customModule="NewsCheck" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="425" height="164"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="425" height="164"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XmM-ZU-q7A">
+                        <rect key="frame" x="0.0" y="0.0" width="164" height="164"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="XmM-ZU-q7A" secondAttribute="height" multiplier="1:1" id="jzz-YO-c6I"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kCs-xa-vM1">
+                        <rect key="frame" x="180" y="0.0" width="245" height="164"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyx-Bk-VEx">
+                                <rect key="frame" x="0.0" y="0.0" width="245" height="35.5"/>
+                                <string key="text">[속보] 신규 확진 49만881명, 
+역대 두번째…사망 291명
+</string>
+                                <fontDescription key="fontDescription" name="NanumSquareOTFB" family="NanumSquareOTF" pointSize="16"/>
+                                <color key="textColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="6GW-fB-GkD">
+                                <rect key="frame" x="0.0" y="140.5" width="245" height="23.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="한겨레" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4Z-5R-Xv1">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="23.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="vta-DG-HI6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NanumSquareOTFB" family="NanumSquareOTF" pointSize="12"/>
+                                        <color key="textColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1B-6h-QdU">
+                                        <rect key="frame" x="211" y="0.0" width="34" height="23.5"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareOTFB" family="NanumSquareOTF" pointSize="12"/>
+                                        <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yyx-Bk-VEx" firstAttribute="top" secondItem="kCs-xa-vM1" secondAttribute="top" id="5Wu-Rd-IXS"/>
+                            <constraint firstItem="6GW-fB-GkD" firstAttribute="height" secondItem="yyx-Bk-VEx" secondAttribute="height" multiplier="2:3" id="Bv9-dm-IrL"/>
+                            <constraint firstAttribute="trailing" secondItem="yyx-Bk-VEx" secondAttribute="trailing" id="MIG-31-FXW"/>
+                            <constraint firstAttribute="bottom" secondItem="6GW-fB-GkD" secondAttribute="bottom" id="UCe-5k-cwj"/>
+                            <constraint firstItem="6GW-fB-GkD" firstAttribute="leading" secondItem="kCs-xa-vM1" secondAttribute="leading" id="d5j-fS-xcR"/>
+                            <constraint firstItem="yyx-Bk-VEx" firstAttribute="leading" secondItem="kCs-xa-vM1" secondAttribute="leading" id="eOV-Ja-fdY"/>
+                            <constraint firstAttribute="trailing" secondItem="6GW-fB-GkD" secondAttribute="trailing" id="p63-ql-YAg"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="XmM-ZU-q7A" secondAttribute="bottom" id="Jua-FY-74n"/>
+                    <constraint firstItem="XmM-ZU-q7A" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="S06-fi-Ubl"/>
+                    <constraint firstItem="XmM-ZU-q7A" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="U7J-ss-R1w"/>
+                    <constraint firstAttribute="bottom" secondItem="kCs-xa-vM1" secondAttribute="bottom" id="bRA-zV-ziV"/>
+                    <constraint firstItem="kCs-xa-vM1" firstAttribute="leading" secondItem="XmM-ZU-q7A" secondAttribute="trailing" constant="16" id="di8-eM-KBu"/>
+                    <constraint firstItem="kCs-xa-vM1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="sYx-iQ-IgB"/>
+                    <constraint firstAttribute="trailing" secondItem="kCs-xa-vM1" secondAttribute="trailing" id="tAh-g3-F3e"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="authorLabel" destination="i4Z-5R-Xv1" id="ulc-1Z-lrk"/>
+                <outlet property="dateLabel" destination="m1B-6h-QdU" id="EXY-S4-89t"/>
+                <outlet property="thumbImageView" destination="XmM-ZU-q7A" id="Ev5-Hp-cVP"/>
+                <outlet property="titleLabel" destination="yyx-Bk-VEx" id="5Nh-87-xyj"/>
+            </connections>
+            <point key="canvasLocation" x="-64.492753623188406" y="120.53571428571428"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

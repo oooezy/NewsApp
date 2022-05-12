@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eQJ-t8-8HB">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NanumSquareEB.otf">
+            <string>NanumSquareOTFEB</string>
+        </array>
+        <array key="NanumSquareR.otf">
+            <string>NanumSquareOTFR</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="RrS-36-D8h">
+            <objects>
+                <viewController id="W2t-gK-o3o" customClass="MainViewController" customModule="NewsCheck" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tfL-D6-svX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Y1b-U9-kgS">
+                                <rect key="frame" x="24" y="112" width="366" height="447"/>
+                                <color key="backgroundColor" red="0.91774549690838869" green="0.92428914692272945" blue="0.9439200969657513" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="clZ-bU-Pke">
+                                    <size key="itemSize" width="414" height="464"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="SlideCollectionViewCell" id="mb4-mQ-2OY" customClass="SliderCollectionViewCell" customModule="NewsCheck" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-8.5" width="414" height="464"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ryq-Ig-xHU">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="464"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="414" height="464"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="W2t-gK-o3o" id="szB-pW-PXb"/>
+                                    <outlet property="delegate" destination="W2t-gK-o3o" id="WNB-kJ-j9c"/>
+                                </connections>
+                            </collectionView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="9M8-Nu-A2O">
+                                <rect key="frame" x="149" y="528" width="116" height="26"/>
+                                <connections>
+                                    <action selector="nextPage:" destination="W2t-gK-o3o" eventType="valueChanged" id="2Ia-cu-SEA"/>
+                                </connections>
+                            </pageControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="08t-6s-drc">
+                                <rect key="frame" x="0.0" y="583" width="414" height="230"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="230" id="ePu-y4-fvf"/>
+                                </constraints>
+                                <color key="sectionIndexColor" red="0.3721780992" green="0.72004729509999998" blue="0.56801811120000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="GnH-nV-ALS"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="GnH-nV-ALS" firstAttribute="trailing" secondItem="08t-6s-drc" secondAttribute="trailing" id="C9Q-Zw-Vqg"/>
+                            <constraint firstItem="Y1b-U9-kgS" firstAttribute="top" secondItem="GnH-nV-ALS" secondAttribute="top" constant="24" id="Ez5-d9-zYi"/>
+                            <constraint firstItem="08t-6s-drc" firstAttribute="leading" secondItem="GnH-nV-ALS" secondAttribute="leading" id="IEt-MV-P68"/>
+                            <constraint firstItem="08t-6s-drc" firstAttribute="bottom" secondItem="GnH-nV-ALS" secondAttribute="bottom" id="Vz2-cv-h7b"/>
+                            <constraint firstItem="Y1b-U9-kgS" firstAttribute="leading" secondItem="GnH-nV-ALS" secondAttribute="leading" constant="24" id="Xoc-J1-8wG"/>
+                            <constraint firstItem="GnH-nV-ALS" firstAttribute="trailing" secondItem="Y1b-U9-kgS" secondAttribute="trailing" constant="24" id="cR1-eB-Zyu"/>
+                            <constraint firstItem="08t-6s-drc" firstAttribute="top" secondItem="Y1b-U9-kgS" secondAttribute="bottom" constant="24" id="kAW-Oy-Evw"/>
+                            <constraint firstItem="9M8-Nu-A2O" firstAttribute="bottom" secondItem="Y1b-U9-kgS" secondAttribute="bottom" constant="-5" id="keB-4M-jnj"/>
+                            <constraint firstItem="9M8-Nu-A2O" firstAttribute="centerX" secondItem="08t-6s-drc" secondAttribute="centerX" id="sSB-rF-Jv4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="lHO-Hf-UZh"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Y1b-U9-kgS" id="BsH-dJ-y9r"/>
+                        <outlet property="pageControl" destination="9M8-Nu-A2O" id="ywN-wU-66X"/>
+                        <outlet property="tableView" destination="08t-6s-drc" id="Owj-nK-idC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VcN-wp-P2E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-413.04347826086962" y="891.96428571428567"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="0Hp-pd-y2f">
+            <objects>
+                <viewController id="dTr-wN-IAp" customClass="SearchViewController" customModule="NewsCheck" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vB0-wr-cAd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="검색어를 입력해 주세요." translatesAutoresizingMaskIntoConstraints="NO" id="IQ5-fE-YrK">
+                                <rect key="frame" x="16" y="84" width="382" height="51"/>
+                                <offsetWrapper key="searchTextPositionAdjustment" horizontal="2" vertical="0.0"/>
+                                <offsetWrapper key="searchFieldBackgroundPositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEu-F9-GRj">
+                                <rect key="frame" x="24" y="165" width="366" height="50"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzq-vV-HE1" userLabel="innerView">
+                                        <rect key="frame" x="0.0" y="0.0" width="447" height="50"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="FLT-4Y-Tsw">
+                                                <rect key="frame" x="0.0" y="0.0" width="431" height="50"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="50" verticalHuggingPriority="50" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3a-fA-jL8" userLabel="비즈니스">
+                                                        <rect key="frame" x="0.0" y="10" width="59" height="30"/>
+                                                        <fontDescription key="fontDescription" name="NanumSquareOTFEB" family="NanumSquareOTF" pointSize="16"/>
+                                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="비즈니스"/>
+                                                        <state key="selected">
+                                                            <color key="titleColor" red="0.96078431369999995" green="0.70196078429999997" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="buttonPressed:" destination="dTr-wN-IAp" eventType="touchUpInside" id="dWU-BF-KOH"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ed-GY-zZY" userLabel="엔터테인먼트">
+                                                        <rect key="frame" x="79" y="10" width="88" height="30"/>
+                                                        <fontDescription key="fontDescription" name="NanumSquareOTFR" family="NanumSquareOTF" pointSize="16"/>
+                                                        <color key="tintColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="엔터테인먼트"/>
+                                                        <state key="selected">
+                                                            <color key="titleColor" red="0.96078431369999995" green="0.70196078429999997" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="buttonPressed:" destination="dTr-wN-IAp" eventType="touchUpInside" id="r2D-sL-fBR"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fM7-GN-Zsf" userLabel="일반">
+                                                        <rect key="frame" x="187" y="10" width="30" height="30"/>
+                                                        <fontDescription key="fontDescription" name="NanumSquareOTFR" family="NanumSquareOTF" pointSize="16"/>
+                                                        <color key="tintColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="일반"/>
+                                                        <state key="selected">
+                                                            <color key="titleColor" red="0.96078431369999995" green="0.70196078429999997" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="buttonPressed:" destination="dTr-wN-IAp" eventType="touchUpInside" id="qXD-6A-cA6"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Cz-Xc-jbM" userLabel="건강">
+                                                        <rect key="frame" x="237" y="10" width="30" height="30"/>
+                                                        <fontDescription key="fontDescription" name="NanumSquareOTFR" family="NanumSquareOTF" pointSize="16"/>
+                                                        <color key="tintColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="건강"/>
+                                                        <state key="selected">
+                                                            <color key="titleColor" red="0.96078431369999995" green="0.70196078429999997" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="buttonPressed:" destination="dTr-wN-IAp" eventType="touchUpInside" id="sWr-wA-9Iz"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9NM-sI-U1W" userLabel="과학">
+                                                        <rect key="frame" x="287" y="10" width="30" height="30"/>
+                                                        <fontDescription key="fontDescription" name="NanumSquareOTFR" family="NanumSquareOTF" pointSize="16"/>
+                                                        <color key="tintColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="과학"/>
+                                                        <state key="selected">
+                                                            <color key="titleColor" red="0.96078431369999995" green="0.70196078429999997" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="buttonPressed:" destination="dTr-wN-IAp" eventType="touchUpInside" id="acR-uS-bgD"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8OA-Md-pO0" userLabel="스포츠">
+                                                        <rect key="frame" x="337" y="10" width="44" height="30"/>
+                                                        <fontDescription key="fontDescription" name="NanumSquareOTFR" family="NanumSquareOTF" pointSize="16"/>
+                                                        <color key="tintColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="스포츠"/>
+                                                        <state key="selected">
+                                                            <color key="titleColor" red="0.96078431369999995" green="0.70196078429999997" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="buttonPressed:" destination="dTr-wN-IAp" eventType="touchUpInside" id="uA8-tj-7NB"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgE-ap-7Vc" userLabel="기술">
+                                                        <rect key="frame" x="401" y="10" width="30" height="30"/>
+                                                        <fontDescription key="fontDescription" name="NanumSquareOTFR" family="NanumSquareOTF" pointSize="16"/>
+                                                        <color key="tintColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="기술"/>
+                                                        <state key="selected">
+                                                            <color key="titleColor" red="0.96078431369999995" green="0.70196078429999997" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="buttonPressed:" destination="dTr-wN-IAp" eventType="touchUpInside" id="j9Q-r3-HsA"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="FLT-4Y-Tsw" firstAttribute="top" secondItem="gzq-vV-HE1" secondAttribute="top" id="1Zk-of-N3l"/>
+                                            <constraint firstAttribute="bottom" secondItem="FLT-4Y-Tsw" secondAttribute="bottom" id="IlR-RZ-E11"/>
+                                            <constraint firstAttribute="trailing" secondItem="FLT-4Y-Tsw" secondAttribute="trailing" constant="16" id="kNH-M1-CxW"/>
+                                            <constraint firstItem="FLT-4Y-Tsw" firstAttribute="leading" secondItem="gzq-vV-HE1" secondAttribute="leading" id="wg6-s3-EQH"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="gzq-vV-HE1" secondAttribute="bottom" id="4Bh-8B-EbY"/>
+                                    <constraint firstAttribute="height" constant="50" id="EsG-w8-Z7q"/>
+                                    <constraint firstItem="gzq-vV-HE1" firstAttribute="leading" secondItem="uEu-F9-GRj" secondAttribute="leading" id="NX3-rM-6CB"/>
+                                    <constraint firstItem="gzq-vV-HE1" firstAttribute="height" secondItem="uEu-F9-GRj" secondAttribute="height" id="d9U-gE-GDq"/>
+                                    <constraint firstItem="gzq-vV-HE1" firstAttribute="top" secondItem="uEu-F9-GRj" secondAttribute="top" id="vas-6k-OBy"/>
+                                    <constraint firstAttribute="trailing" secondItem="gzq-vV-HE1" secondAttribute="trailing" id="zi2-mL-W9x"/>
+                                </constraints>
+                            </scrollView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="D0h-PO-eMm">
+                                <rect key="frame" x="24" y="231" width="366" height="558"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Gff-VL-H7b"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uEu-F9-GRj" firstAttribute="top" secondItem="IQ5-fE-YrK" secondAttribute="bottom" constant="30" id="2a7-rF-eBf"/>
+                            <constraint firstItem="D0h-PO-eMm" firstAttribute="top" secondItem="uEu-F9-GRj" secondAttribute="bottom" constant="16" id="57X-JF-uhO"/>
+                            <constraint firstItem="IQ5-fE-YrK" firstAttribute="top" secondItem="Gff-VL-H7b" secondAttribute="top" constant="40" id="5FZ-X8-I0P"/>
+                            <constraint firstItem="IQ5-fE-YrK" firstAttribute="leading" secondItem="Gff-VL-H7b" secondAttribute="leading" constant="16" id="DWM-xc-nYM"/>
+                            <constraint firstItem="uEu-F9-GRj" firstAttribute="leading" secondItem="Gff-VL-H7b" secondAttribute="leading" constant="24" id="GjV-yS-yT3"/>
+                            <constraint firstItem="D0h-PO-eMm" firstAttribute="bottom" secondItem="Gff-VL-H7b" secondAttribute="bottom" constant="-24" id="Wfn-RW-dko"/>
+                            <constraint firstItem="Gff-VL-H7b" firstAttribute="trailing" secondItem="D0h-PO-eMm" secondAttribute="trailing" constant="24" id="YBL-Fg-s6H"/>
+                            <constraint firstItem="D0h-PO-eMm" firstAttribute="leading" secondItem="Gff-VL-H7b" secondAttribute="leading" constant="24" id="buf-ZQ-Ab8"/>
+                            <constraint firstItem="Gff-VL-H7b" firstAttribute="trailing" secondItem="uEu-F9-GRj" secondAttribute="trailing" constant="24" id="eAw-6O-Utu"/>
+                            <constraint firstItem="Gff-VL-H7b" firstAttribute="trailing" secondItem="IQ5-fE-YrK" secondAttribute="trailing" constant="16" id="mRL-Ul-HS3"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="Search_ic" landscapeImage="Search_ic" selectedImage="Search_s_ic" id="v4T-IH-7mB">
+                        <color key="badgeColor" red="0.96078431369999995" green="0.70196078429999997" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="categoryScrollView" destination="uEu-F9-GRj" id="yAz-pb-uHN"/>
+                        <outlet property="innerView" destination="gzq-vV-HE1" id="fLQ-wD-J2G"/>
+                        <outlet property="searchBar" destination="IQ5-fE-YrK" id="z0V-A9-Ipe"/>
+                        <outlet property="stackView" destination="FLT-4Y-Tsw" id="Z46-9h-jNq"/>
+                        <outlet property="tableView" destination="D0h-PO-eMm" id="daH-sE-s98"/>
+                        <outletCollection property="categoryButtons" destination="3ed-GY-zZY" collectionClass="NSMutableArray" id="GPv-fr-EeN"/>
+                        <outletCollection property="categoryButtons" destination="fM7-GN-Zsf" collectionClass="NSMutableArray" id="xfW-yy-1hD"/>
+                        <outletCollection property="categoryButtons" destination="4Cz-Xc-jbM" collectionClass="NSMutableArray" id="cz4-cq-MLd"/>
+                        <outletCollection property="categoryButtons" destination="9NM-sI-U1W" collectionClass="NSMutableArray" id="qsC-Hx-Z4W"/>
+                        <outletCollection property="categoryButtons" destination="8OA-Md-pO0" collectionClass="NSMutableArray" id="co5-AM-fbp"/>
+                        <outletCollection property="categoryButtons" destination="pgE-ap-7Vc" collectionClass="NSMutableArray" id="jX4-bV-1Y9"/>
+                        <outletCollection property="categoryButtons" destination="g3a-fA-jL8" collectionClass="NSMutableArray" id="rjn-DW-g4j"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1k2-Ih-2Pt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="335" y="892"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="wGk-3z-7zh">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="eQJ-t8-8HB" customClass="TabBarController" customModule="NewsCheck" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="I0b-gu-Zbz">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.96078431369999995" green="0.70196078429999997" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.96078431369999995" green="0.70196078429999997" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="lde-J2-uUg" kind="relationship" relationship="viewControllers" id="NPd-9v-o1W"/>
+                        <segue destination="dTr-wN-IAp" kind="relationship" relationship="viewControllers" id="yvV-pS-6gr"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6O0-4M-lE8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-197.10144927536234" y="75.669642857142847"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sn5-Ae-7pv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lde-J2-uUg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="Home_ic" landscapeImage="Home_ic" selectedImage="Home_s_ic" id="dz3-QD-yfj">
+                        <color key="badgeColor" red="0.96078431369999995" green="0.70196078429999997" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NoA-KZ-mD2">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="W2t-gK-o3o" kind="relationship" relationship="rootViewController" id="lRU-LN-hAX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l6U-b5-caF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1323.1884057971015" y="891.96428571428567"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Home_ic" width="22" height="19"/>
+        <image name="Home_s_ic" width="22" height="19"/>
+        <image name="Search_ic" width="22" height="21"/>
+        <image name="Search_s_ic" width="22" height="21"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
