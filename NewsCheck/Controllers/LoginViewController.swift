@@ -9,6 +9,9 @@ import UIKit
 import Firebase
 import GoogleSignIn
 import AuthenticationServices
+import KakaoSDKAuth
+import KakaoSDKCommon
+import KakaoSDKUser
 
 class LoginViewController: UIViewController {
     
@@ -65,7 +68,19 @@ class LoginViewController: UIViewController {
 
     // Kakao
     @IBAction func tappedKakaoSignInButton(_ sender: UIButton) {
-        
+        if (UserApi.isKakaoTalkLoginAvailable()) {
+            UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
+                if let error = error {
+                    print(error)
+                }
+                else {
+                    print("loginWithKakaoTalk() success.")
+
+                    //do something
+                    _ = oauthToken
+                }
+            }
+        }
     }
 }
 
