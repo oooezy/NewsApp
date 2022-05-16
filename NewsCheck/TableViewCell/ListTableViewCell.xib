@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -62,7 +61,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="yyx-Bk-VEx" firstAttribute="top" secondItem="kCs-xa-vM1" secondAttribute="top" id="5Wu-Rd-IXS"/>
                             <constraint firstItem="6GW-fB-GkD" firstAttribute="height" secondItem="yyx-Bk-VEx" secondAttribute="height" multiplier="2:3" id="Bv9-dm-IrL"/>
@@ -85,6 +84,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="authorLabel" destination="i4Z-5R-Xv1" id="ulc-1Z-lrk"/>
                 <outlet property="dateLabel" destination="m1B-6h-QdU" id="EXY-S4-89t"/>
@@ -94,9 +94,4 @@
             <point key="canvasLocation" x="-64.492753623188406" y="120.53571428571428"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>
