@@ -23,19 +23,26 @@
 		C0524236283107100034B66B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0524235283107100034B66B /* GoogleService-Info.plist */; };
 		C065DE022830A00B000AD2C3 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C065DE012830A00B000AD2C3 /* UserModel.swift */; };
 		C065DE042830A0CF000AD2C3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C065DE032830A0CF000AD2C3 /* LoginViewController.swift */; };
-		C065DE062830A49F000AD2C3 /* LoginDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C065DE052830A49F000AD2C3 /* LoginDetailViewController.swift */; };
+		C065DE062830A49F000AD2C3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C065DE052830A49F000AD2C3 /* SignUpViewController.swift */; };
 		C065DE082830D366000AD2C3 /* UITextField + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C065DE072830D366000AD2C3 /* UITextField + Extension.swift */; };
 		C06DAE382806EBFC008E0559 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06DAE362806EBFC008E0559 /* NewsTableViewCell.swift */; };
 		C06DAE392806EBFC008E0559 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C06DAE372806EBFC008E0559 /* NewsTableViewCell.xib */; };
 		C09A6EF8281A294900DCCEFD /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A6EF6281A294900DCCEFD /* ListTableViewCell.swift */; };
 		C09A6EF9281A294900DCCEFD /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C09A6EF7281A294900DCCEFD /* ListTableViewCell.xib */; };
 		C09A6EFB281A48F700DCCEFD /* UISearchBar + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A6EFA281A48F700DCCEFD /* UISearchBar + Extension.swift */; };
+		C09D072428336E88007D527B /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09D072328336E88007D527B /* BookmarkViewController.swift */; };
+		C09D072728337018007D527B /* BookmarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09D072528337018007D527B /* BookmarkTableViewCell.swift */; };
+		C09D072828337018007D527B /* BookmarkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C09D072628337018007D527B /* BookmarkTableViewCell.xib */; };
 		C0A5A1D828150D4B0030A49B /* NewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A5A1D628150D4B0030A49B /* NewsCollectionViewCell.swift */; };
 		C0A5A1D928150D4B0030A49B /* NewsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0A5A1D728150D4B0030A49B /* NewsCollectionViewCell.xib */; };
 		C0B8ED4627EB8B4A00545C57 /* NanumSquareB.otf in Resources */ = {isa = PBXBuildFile; fileRef = C0B8ED4227EB8B4A00545C57 /* NanumSquareB.otf */; };
 		C0B8ED4727EB8B4A00545C57 /* NanumSquareR.otf in Resources */ = {isa = PBXBuildFile; fileRef = C0B8ED4327EB8B4A00545C57 /* NanumSquareR.otf */; };
 		C0B8ED4827EB8B4A00545C57 /* NanumSquareL.otf in Resources */ = {isa = PBXBuildFile; fileRef = C0B8ED4427EB8B4A00545C57 /* NanumSquareL.otf */; };
 		C0B8ED4927EB8B4A00545C57 /* NanumSquareEB.otf in Resources */ = {isa = PBXBuildFile; fileRef = C0B8ED4527EB8B4A00545C57 /* NanumSquareEB.otf */; };
+		C0E74BC62834C6A800335FE7 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E74BC52834C6A800335FE7 /* SettingViewController.swift */; };
+		C0E74BC92834C80A00335FE7 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E74BC72834C80A00335FE7 /* SettingTableViewCell.swift */; };
+		C0E74BCA2834C80A00335FE7 /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0E74BC82834C80A00335FE7 /* SettingTableViewCell.xib */; };
+		C0E74BCC2834D8BB00335FE7 /* UIWindow + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E74BCB2834D8BB00335FE7 /* UIWindow + Extension.swift */; };
 		C0F5677427EAE3850039E49A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F5677327EAE3850039E49A /* MainViewController.swift */; };
 		FDEAD9DE0F58263420ACA52F /* Pods_NewsCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EEC1B4A9FE402F73654CC42 /* Pods_NewsCheck.framework */; };
 /* End PBXBuildFile section */
@@ -62,7 +69,7 @@
 		C0524235283107100034B66B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C065DE012830A00B000AD2C3 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		C065DE032830A0CF000AD2C3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		C065DE052830A49F000AD2C3 /* LoginDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDetailViewController.swift; sourceTree = "<group>"; };
+		C065DE052830A49F000AD2C3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		C065DE072830D366000AD2C3 /* UITextField + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extension.swift"; sourceTree = "<group>"; };
 		C06DAE362806EBFC008E0559 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		C06DAE372806EBFC008E0559 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
@@ -70,12 +77,19 @@
 		C09A6EF6281A294900DCCEFD /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		C09A6EF7281A294900DCCEFD /* ListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
 		C09A6EFA281A48F700DCCEFD /* UISearchBar + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar + Extension.swift"; sourceTree = "<group>"; };
+		C09D072328336E88007D527B /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
+		C09D072528337018007D527B /* BookmarkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkTableViewCell.swift; sourceTree = "<group>"; };
+		C09D072628337018007D527B /* BookmarkTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookmarkTableViewCell.xib; sourceTree = "<group>"; };
 		C0A5A1D628150D4B0030A49B /* NewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionViewCell.swift; sourceTree = "<group>"; };
 		C0A5A1D728150D4B0030A49B /* NewsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCollectionViewCell.xib; sourceTree = "<group>"; };
 		C0B8ED4227EB8B4A00545C57 /* NanumSquareB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareB.otf; sourceTree = "<group>"; };
 		C0B8ED4327EB8B4A00545C57 /* NanumSquareR.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareR.otf; sourceTree = "<group>"; };
 		C0B8ED4427EB8B4A00545C57 /* NanumSquareL.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareL.otf; sourceTree = "<group>"; };
 		C0B8ED4527EB8B4A00545C57 /* NanumSquareEB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareEB.otf; sourceTree = "<group>"; };
+		C0E74BC52834C6A800335FE7 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		C0E74BC72834C80A00335FE7 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		C0E74BC82834C80A00335FE7 /* SettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
+		C0E74BCB2834D8BB00335FE7 /* UIWindow + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow + Extension.swift"; sourceTree = "<group>"; };
 		C0F5677327EAE3850039E49A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -154,7 +168,9 @@
 				C00BAD6527E97FD900134BEA /* SearchViewController.swift */,
 				C0F5677327EAE3850039E49A /* MainViewController.swift */,
 				C065DE032830A0CF000AD2C3 /* LoginViewController.swift */,
-				C065DE052830A49F000AD2C3 /* LoginDetailViewController.swift */,
+				C065DE052830A49F000AD2C3 /* SignUpViewController.swift */,
+				C09D072328336E88007D527B /* BookmarkViewController.swift */,
+				C0E74BC52834C6A800335FE7 /* SettingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -167,6 +183,7 @@
 				C00BAD8C27EA2C9500134BEA /* UILabel + Extension.swift */,
 				C09A6EFA281A48F700DCCEFD /* UISearchBar + Extension.swift */,
 				C065DE072830D366000AD2C3 /* UITextField + Extension.swift */,
+				C0E74BCB2834D8BB00335FE7 /* UIWindow + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -195,6 +212,10 @@
 				C06DAE372806EBFC008E0559 /* NewsTableViewCell.xib */,
 				C09A6EF6281A294900DCCEFD /* ListTableViewCell.swift */,
 				C09A6EF7281A294900DCCEFD /* ListTableViewCell.xib */,
+				C09D072528337018007D527B /* BookmarkTableViewCell.swift */,
+				C09D072628337018007D527B /* BookmarkTableViewCell.xib */,
+				C0E74BC72834C80A00335FE7 /* SettingTableViewCell.swift */,
+				C0E74BC82834C80A00335FE7 /* SettingTableViewCell.xib */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -301,6 +322,8 @@
 				C0A5A1D928150D4B0030A49B /* NewsCollectionViewCell.xib in Resources */,
 				C00BAD6927E97FD900134BEA /* Main.storyboard in Resources */,
 				C09A6EF9281A294900DCCEFD /* ListTableViewCell.xib in Resources */,
+				C0E74BCA2834C80A00335FE7 /* SettingTableViewCell.xib in Resources */,
+				C09D072828337018007D527B /* BookmarkTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,12 +376,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0E74BC92834C80A00335FE7 /* SettingTableViewCell.swift in Sources */,
 				C09A6EF8281A294900DCCEFD /* ListTableViewCell.swift in Sources */,
 				C00BAD7A27E986C300134BEA /* Model.swift in Sources */,
 				C06DAE382806EBFC008E0559 /* NewsTableViewCell.swift in Sources */,
+				C09D072428336E88007D527B /* BookmarkViewController.swift in Sources */,
 				C0F5677427EAE3850039E49A /* MainViewController.swift in Sources */,
+				C0E74BCC2834D8BB00335FE7 /* UIWindow + Extension.swift in Sources */,
+				C0E74BC62834C6A800335FE7 /* SettingViewController.swift in Sources */,
 				C0A5A1D828150D4B0030A49B /* NewsCollectionViewCell.swift in Sources */,
-				C065DE062830A49F000AD2C3 /* LoginDetailViewController.swift in Sources */,
+				C065DE062830A49F000AD2C3 /* SignUpViewController.swift in Sources */,
 				C00082FE281F8A9C006D61C1 /* SliderCollectionViewCell.swift in Sources */,
 				C00BAD8A27EA21B900134BEA /* UIColor + Extension.swift in Sources */,
 				C00BAD6627E97FD900134BEA /* SearchViewController.swift in Sources */,
@@ -371,6 +398,7 @@
 				C065DE022830A00B000AD2C3 /* UserModel.swift in Sources */,
 				C00BAD7727E981E900134BEA /* Service.swift in Sources */,
 				C065DE082830D366000AD2C3 /* UITextField + Extension.swift in Sources */,
+				C09D072728337018007D527B /* BookmarkTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

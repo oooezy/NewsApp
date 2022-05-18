@@ -8,9 +8,9 @@ target 'NewsCheck' do
   # Pods for NewsCheck
 
  pod 'Firebase/Auth'
- pod 'GoogleSignIn'
-pod 'KakaoSDKCommon'  # 필수 요소를 담은 공통 모듈
-pod 'KakaoSDKAuth'  # 사용자 인증
+pod 'GoogleSignIn', '~> 6.0.2'
+pod 'KakaoSDKCommon'
+pod 'KakaoSDKAuth'
 pod 'KakaoSDKUser'
 
 end

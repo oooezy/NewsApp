@@ -27,7 +27,7 @@ PODS:
     - nanopb (~> 1.30906.0)
   - GoogleDataTransport (7.5.1):
     - nanopb (~> 1.30906.0)
-  - GoogleSignIn (6.1.0):
+  - GoogleSignIn (6.0.2):
     - AppAuth (~> 1.4)
     - GTMAppAuth (~> 1.0)
     - GTMSessionFetcher/Core (~> 1.1)
@@ -70,7 +70,7 @@ PODS:
 
 DEPENDENCIES:
   - Firebase/Auth
-  - GoogleSignIn
+  - GoogleSignIn (~> 6.0.2)
   - KakaoSDKAuth
   - KakaoSDKCommon
   - KakaoSDKUser
@@ -102,7 +102,7 @@ SPEC CHECKSUMS:
   FirebaseCore: d3a978a3cfa3240bf7e4ba7d137fdf5b22b628ec
   FirebaseCoreDiagnostics: 770ac5958e1372ce67959ae4b4f31d8e127c3ac1
   GoogleDataTransport: f56af7caa4ed338dc8e138a5d7c5973e66440833
-  GoogleSignIn: c90b5bec45e780f54c6a8e1e3c182a86e3dda69d
+  GoogleSignIn: fd381840dbe7c1137aa6dc30849a5c3e070c034a
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
   GTMAppAuth: 4d8f864896f3646f0c33baf38a28362f4c601e15
   GTMSessionFetcher: 5595ec75acf5be50814f81e9189490412bad82ba
@@ -112,6 +112,6 @@ SPEC CHECKSUMS:
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
 
-PODFILE CHECKSUM: 91c065c83a1cb311d33ab6b59217eb22ab5aa37d
+PODFILE CHECKSUM: 87e327c4b9290a2b9cbe7fc79b1b95caa7b37ebb
 
 COCOAPODS: 1.11.3

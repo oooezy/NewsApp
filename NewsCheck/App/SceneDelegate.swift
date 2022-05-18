@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
                 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
+
         if isLogged == false {
             guard let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginView") as? LoginViewController else { return }
             window?.rootViewController = loginVC

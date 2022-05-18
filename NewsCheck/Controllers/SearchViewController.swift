@@ -9,6 +9,7 @@ import UIKit
 import SafariServices
 
 class SearchViewController: UIViewController {
+    
     var category: [String:String] = [
         "비즈니스" : "business",
         "엔터테인먼트" : "entertainment",
@@ -41,7 +42,7 @@ class SearchViewController: UIViewController {
         fetch(with: "business")
     }
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
          self.view.endEditing(true)
    }
     
@@ -93,7 +94,7 @@ class SearchViewController: UIViewController {
         }
     }
     
-
+    
     // MARK: -IBAction
     @IBAction func buttonPressed(_ sender: UIButton) {
         categoryButtons.forEach {
@@ -111,7 +112,6 @@ class SearchViewController: UIViewController {
         
         fetch(with: category)
     }
-    
 }
 
 // MARK: - Extension
@@ -163,7 +163,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell", for: indexPath) as!
                 ListTableViewCell
-
+        cell.delegate = self
         cell.configureCell(with: viewModels[indexPath.row])
         return cell
     }
@@ -183,3 +183,19 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+extension SearchViewController: ListTVCellDelegate {
+    func didTapBookmarkButton(_ cell: ListTableViewCell) {
+        let title = cell.titleLabel.text!
+        let author = cell.authorLabel.text ?? ""
+        let date = cell.dateLabel.text ?? ""
+        
+        if let bookmarkVC = storyboard?.instantiateViewController(withIdentifier: "BookmarkViewController") as? BookmarkViewController {
+//            bookmarkVC.bookmarkArr.append([title, author, date])
+
+            bookmarkVC.bookmarkTitle = title
+            bookmarkVC.author = author
+            bookmarkVC.date = date
+        }
+//        bookmarkVC.bookmarkArr.append([title, author, date])
+    }
+}

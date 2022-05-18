@@ -7,14 +7,21 @@
 
 import UIKit
 
+protocol ListTVCellDelegate {
+    func didTapBookmarkButton(_ cell: ListTableViewCell)
+}
+
 class ListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var thumbImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var bookmarkButton: UIButton!
     
     var viewModels = [NewsTableViewCellViewModel]()
+    var delegate: ListTVCellDelegate?
+    var isChecked = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,7 +40,8 @@ class ListTableViewCell: UITableViewCell {
         thumbImageView.layer.cornerRadius = 10
         thumbImageView.clipsToBounds = true
         
-        titleLabel.text = viewModel.title
+        let text = viewModel.title
+        titleLabel.text = text.split(separator: "-").dropLast(1).joined()
         authorLabel.text = viewModel.author
         
         let attrString = NSMutableAttributedString(string: titleLabel.text!)
@@ -42,7 +50,6 @@ class ListTableViewCell: UITableViewCell {
         attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrString.length))
         titleLabel.attributedText = attrString
 
-        
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions = [.withFullDate]
         let date = formatter.date(from: viewModel.publishedAt)!
@@ -67,6 +74,18 @@ class ListTableViewCell: UITableViewCell {
         } else {
             thumbImageView.image = UIImage(named: "defaultThumb")
         }
+    }
+    
+    @IBAction func didTapBookmark(_ sender: UIButton) {
+        isChecked = !isChecked
+        if isChecked {
+            bookmarkButton.setImage(UIImage(named: "bookmark_On"), for: .normal)
+        } else {
+            bookmarkButton.setImage(UIImage(named: "bookmark_Off"), for: .normal)
+        }
+        
+        delegate?.didTapBookmarkButton(self)
+
     }
     
 }

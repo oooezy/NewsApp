@@ -22,10 +22,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// The error domain for `NSError`s returned by the Google Sign-In SDK.
+/// The error domain for `NSError`s returned by the Google Identity SDK.
 extern NSErrorDomain const kGIDSignInErrorDomain;
 
-/// A list of potential error codes returned from the Google Sign-In SDK.
+/// A list of potential error codes returned from the Google Identity SDK.
 typedef NS_ERROR_ENUM(kGIDSignInErrorDomain, GIDSignInErrorCode) {
   /// Indicates an unknown error has occurred.
   kGIDSignInErrorCodeUnknown = -1,
@@ -104,8 +104,7 @@ typedef void (^GIDDisconnectCallback)(NSError *_Nullable error);
 ///     called asynchronously on the main queue.
 - (void)signInWithConfiguration:(GIDConfiguration *)configuration
        presentingViewController:(UIViewController *)presentingViewController
-                       callback:(nullable GIDSignInCallback)callback
-    NS_EXTENSION_UNAVAILABLE("The sign-in flow is not supported in App Extensions.");
+                       callback:(nullable GIDSignInCallback)callback;
 
 /// Starts an interactive sign-in flow using the provided configuration and a login hint.
 ///
@@ -125,8 +124,7 @@ typedef void (^GIDDisconnectCallback)(NSError *_Nullable error);
 - (void)signInWithConfiguration:(GIDConfiguration *)configuration
        presentingViewController:(UIViewController *)presentingViewController
                            hint:(nullable NSString *)hint
-                       callback:(nullable GIDSignInCallback)callback
-    NS_EXTENSION_UNAVAILABLE("The sign-in flow is not supported in App Extensions.");
+                       callback:(nullable GIDSignInCallback)callback;
 
 /// Starts an interactive consent flow to add scopes to the current user's grants.
 ///
@@ -141,8 +139,7 @@ typedef void (^GIDDisconnectCallback)(NSError *_Nullable error);
 ///     called asynchronously on the main queue.
 - (void)addScopes:(NSArray<NSString *> *)scopes
     presentingViewController:(UIViewController *)presentingViewController
-                    callback:(nullable GIDSignInCallback)callback
-    NS_EXTENSION_UNAVAILABLE("The add scopes flow is not supported in App Extensions."); 
+                    callback:(nullable GIDSignInCallback)callback;
 
 /// Marks current user as being in the signed out state.
 - (void)signOut;

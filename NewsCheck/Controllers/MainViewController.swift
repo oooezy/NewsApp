@@ -29,7 +29,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .lightBGColor
         
-        let image = UIImage(named: "titleLogo")
+        let image = UIImage(named: "navigationLogo")
         navigationItem.titleView = UIImageView(image: image)
         
         setUpCollectionView()
