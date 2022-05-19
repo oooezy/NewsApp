@@ -527,7 +527,7 @@
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="" backgroundImage="kakao"/>
                                                 <connections>
-                                                    <action selector="tappedKakaoSignInButton:" destination="SAf-eE-o7A" eventType="touchUpInside" id="6L0-XH-ynH"/>
+                                                    <action selector="kakaoLoginButtonTapped:" destination="SAf-eE-o7A" eventType="touchUpInside" id="5en-ao-wbh"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wcb-CZ-bFo" userLabel="apple">
@@ -539,7 +539,7 @@
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="" backgroundImage="Apple"/>
                                                 <connections>
-                                                    <action selector="tappedAppleSignInButton:" destination="SAf-eE-o7A" eventType="touchUpInside" id="Jlo-3m-abx"/>
+                                                    <action selector="appleLoginButtonTapped:" destination="SAf-eE-o7A" eventType="touchUpInside" id="vdI-yp-s97"/>
                                                 </connections>
                                             </button>
                                         </subviews>
