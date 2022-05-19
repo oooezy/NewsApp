@@ -7,7 +7,9 @@ target 'NewsCheck' do
 
   # Pods for NewsCheck
 
- pod 'Firebase/Auth'
+pod 'Firebase/Auth'
+pod 'Firebase/Database'
+pod 'Firebase/Storage'
 pod 'GoogleSignIn', '~> 6.0.2'
 pod 'KakaoSDKCommon'
 pod 'KakaoSDKAuth'

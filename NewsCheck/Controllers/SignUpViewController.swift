@@ -6,6 +6,10 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseDatabase
+import FirebaseStorage
 
 class SignUpViewController: UIViewController {
     var userModel = UserModel() // 인스턴스 생성
@@ -14,7 +18,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordConfirmTextField: UITextField!
-    @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var keyboardHeightConstraint: NSLayoutConstraint!
     
     // MARK: - View Life Cycle
@@ -23,17 +27,20 @@ class SignUpViewController: UIViewController {
         view.backgroundColor = .lightBGColor
         
         self.title = "회원가입"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.fontColorGray]
+        self.navigationController?.navigationBar.topItem?.title = ""
+        self.navigationController?.navigationBar.tintColor = .fontColorGray
 
         // 키보드 내리기
         emailTextField.addTarget(self, action: #selector(didEndOnExit), for: UIControl.Event.editingDidEndOnExit)
         emailTextField.addTarget(self, action: #selector(didEndOnExit), for: UIControl.Event.editingDidEndOnExit)
         passwordTextField.addTarget(self, action: #selector(didEndOnExit), for: UIControl.Event.editingDidEndOnExit)
         passwordConfirmTextField.addTarget(self, action: #selector(didEndOnExit), for: UIControl.Event.editingDidEndOnExit)
-        confirmButton.addTarget(self, action: #selector(didEndOnExit), for: UIControl.Event.editingDidEndOnExit)
+        signUpButton.addTarget(self, action: #selector(didEndOnExit), for: UIControl.Event.editingDidEndOnExit)
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.fontColorGray]
+        
         NotificationCenter.default.addObserver(
           self,
           selector: #selector(keyboardWillShow),
@@ -87,14 +94,31 @@ class SignUpViewController: UIViewController {
         passwordConfirmTextField.layer.borderColor = UIColor(hex: 0xE6E6E6).cgColor
         passwordConfirmTextField.layer.masksToBounds = true
         
-        confirmButton.layer.cornerRadius = 10
+        signUpButton.layer.cornerRadius = 10
     }
     
     // 회원 확인 method
     func isUser(id: String) -> Bool {
         for user in userModel.users {
             if user.email == id {
-                return true // 이미 회원인 경우
+                shakeTextField(textField: emailTextField)
+                let emailLabel: UILabel = {
+                    let label = UILabel()
+                    
+                    label.translatesAutoresizingMaskIntoConstraints = false
+                    label.text = "이미 가입된 이메일입니다."
+                    label.font = UIFont.NanumSquare(type: .Regular, size: 12)
+                    label.textColor = UIColor.red
+                    label.tag = 100
+                    
+                    return label
+                }()
+                
+                self.view.addSubview(emailLabel)
+                NSLayoutConstraint.activate([
+                    emailLabel.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 10),
+                    emailLabel.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor)
+                ])
             }
         }
         return false
@@ -102,26 +126,32 @@ class SignUpViewController: UIViewController {
     
     func shakeTextField(textField: UITextField) -> Void {
         UIView.animate(withDuration: 0.2, animations: {
-            textField.frame.origin.x -= 10
+            textField.frame.origin.x -= 5
         }, completion: { _ in
             UIView.animate(withDuration: 0.2, animations: {
                 textField.frame.origin.x += 10
              }, completion: { _ in
                  UIView.animate(withDuration: 0.2, animations: {
-                    textField.frame.origin.x -= 10
+                    textField.frame.origin.x -= 5
                 })
             })
         })
     }
+    
+    private func showMainViewController() {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let mainVC = storyboard.instantiateViewController(withIdentifier: "MainView")
+        mainVC.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(mainVC, animated: true)
+    }
 
     // MARK: - IBAction
     @IBAction func didTapSignUpButton(_ sender: UIButton) {
-        guard let name = emailTextField.text, !name.isEmpty else { return }
         guard let email = emailTextField.text, !email.isEmpty else { return }
         guard let password = passwordTextField.text, !password.isEmpty else { return }
         guard let passwordConfirm = passwordConfirmTextField.text, !passwordConfirm.isEmpty else { return }
 
-        if userModel.isValidEmail(id: email){
+        if userModel.isValidEmail(id: email) {
             if let removable = self.view.viewWithTag(100) {
                 removable.removeFromSuperview()
             }
@@ -144,7 +174,7 @@ class SignUpViewController: UIViewController {
                 emailLabel.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 10),
                 emailLabel.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor)
             ])
-        } // 이메일 형식 오류
+        }
         
         if userModel.isValidPassword(pwd: password) {
             if let removable = self.view.viewWithTag(101) {
@@ -200,20 +230,35 @@ class SignUpViewController: UIViewController {
             let joinFail: Bool = isUser(id: email)
             if joinFail {
                 shakeTextField(textField: emailTextField)
-                let joinFailLabel = UILabel(frame: CGRect(x: 68, y: 510, width: 279, height: 45))
-                joinFailLabel.text = "이미 가입된 이메일입니다."
-                joinFailLabel.textColor = UIColor.red
-                joinFailLabel.tag = 103
-                
+                let joinFailLabel: UILabel = {
+                    let label = UILabel()
+                    
+                    label.translatesAutoresizingMaskIntoConstraints = false
+                    label.text = "이미 가입된 이메일입니다."
+                    label.font = UIFont.NanumSquare(type: .Regular, size: 12)
+                    label.textColor = UIColor.red
+                    label.tag = 103
+                    
+                    return label
+                }()
+
                 self.view.addSubview(joinFailLabel)
+                NSLayoutConstraint.activate([
+                    joinFailLabel.topAnchor.constraint(equalTo: passwordConfirmTextField.bottomAnchor, constant: 10),
+                    joinFailLabel.leadingAnchor.constraint(equalTo: passwordConfirmTextField.leadingAnchor)
+                ])
             } else {
-                if let removable = self.view.viewWithTag(103) {
-                    removable.removeFromSuperview()
+                Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+                    if error != nil {
+                        print("회원가입 성공")
+                        // 메인뷰 컨으로 이동
+                    } else {
+                        print("회원가입 실패")
+                        print(error?.localizedDescription)
+                    }
                 }
-                self.performSegue(withIdentifier: "showMap", sender: self)
             }
         }
-                
     }
     
     // MARK: - objc

@@ -27,7 +27,7 @@ final class UserModel {
         
     // 비밀번호 형식 검사
     func isValidPassword(pwd: String) -> Bool {
-        let passwordRegEx = "^[a-zA-Z0-9]{8,}$"
+        let passwordRegEx = "^(?=.*[A-Za-z])(?=.*[0-9]).{8,50}$"
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", passwordRegEx)
         return passwordTest.evaluate(with: pwd)
     }

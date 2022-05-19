@@ -75,13 +75,13 @@ class LoginViewController: UIViewController {
     
     func shakeTextField(textField: UITextField) -> Void {
         UIView.animate(withDuration: 0.2, animations: {
-            textField.frame.origin.x -= 10
+            textField.frame.origin.x -= 5
         }, completion: { _ in
             UIView.animate(withDuration: 0.2, animations: {
                 textField.frame.origin.x += 10
              }, completion: { _ in
                  UIView.animate(withDuration: 0.2, animations: {
-                    textField.frame.origin.x -= 10
+                    textField.frame.origin.x -= 5
                 })
             })
         })
@@ -92,38 +92,36 @@ class LoginViewController: UIViewController {
         guard let email = emailTextField.text, !email.isEmpty else { return }
         guard let password = passwordTextField.text, !password.isEmpty else { return }
             
-        if userModel.isValidEmail(id: email){
+        if userModel.isValidEmail(id: email) {
             if let removable = self.view.viewWithTag(100) {
                 removable.removeFromSuperview()
             }
-        }
-        else {
-            shakeTextField(textField: emailTextField)
-            let emailLabel: UILabel = {
-                let label = UILabel()
-                
-                label.translatesAutoresizingMaskIntoConstraints = false
-                label.text = "이메일 형식을 확인해 주세요."
-                label.font = UIFont.NanumSquare(type: .Regular, size: 12)
-                label.textColor = UIColor.red
-                label.tag = 100
-                
-                return label
-            }()
+        } else {
+        shakeTextField(textField: emailTextField)
+        let emailLabel: UILabel = {
+            let label = UILabel()
             
-            self.textFieldContainerView.addSubview(emailLabel)
-            NSLayoutConstraint.activate([
-                emailLabel.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 10),
-                emailLabel.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor)
-            ])
-        }
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.text = "이메일 형식을 확인해 주세요."
+            label.font = UIFont.NanumSquare(type: .Regular, size: 12)
+            label.textColor = UIColor.red
+            label.tag = 100
             
-        if userModel.isValidPassword(pwd: password){
+            return label
+        }()
+        
+        self.textFieldContainerView.addSubview(emailLabel)
+        NSLayoutConstraint.activate([
+            emailLabel.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 10),
+            emailLabel.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor)
+        ])
+    }
+            
+        if userModel.isValidPassword(pwd: password) {
             if let removable = self.view.viewWithTag(101) {
                 removable.removeFromSuperview()
             }
-        }
-        else {
+        } else {
             shakeTextField(textField: passwordTextField)
             let passwordLabel: UILabel = {
                 let label = UILabel()
@@ -143,35 +141,24 @@ class LoginViewController: UIViewController {
             ])
         }
             
-        if userModel.isValidEmail(id: email) && userModel.isValidPassword(pwd: password) {
-            let loginSuccess: Bool = loginCheck(id: email, pwd: password)
-            if loginSuccess {
-                if let removable = self.view.viewWithTag(102) {
-                    removable.removeFromSuperview()
-                }
-                self.performSegue(withIdentifier: "showMain", sender: self)
-            }
-            else {
-                shakeTextField(textField: emailTextField)
-                shakeTextField(textField: passwordTextField)
-                let loginFailLabel: UILabel = {
-                    let label = UILabel()
-                    
-                    label.translatesAutoresizingMaskIntoConstraints = false
-                    label.text = "아이디나 비밀번호가 다릅니다."
-                    label.font = UIFont.NanumSquare(type: .Regular, size: 12)
-                    label.textColor = UIColor.red
-                    label.tag = 102
-                    
-                    return label
-                }()
-                self.view.addSubview(loginFailLabel)
-                NSLayoutConstraint.activate([
-                    loginFailLabel.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 16),
-                    loginFailLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-                ])
+        Auth.auth().signIn(withEmail: email, password: password) {[weak self] authResult, error in
+            if let e = error {
+                self?.shakeTextField(textField: self!.emailTextField)
+                self?.shakeTextField(textField: self!.passwordTextField)
+            } else {
+                self?.performSegue(withIdentifier: "showMain", sender: self)
             }
         }
+        
+//        if userModel.isValidEmail(id: email) && userModel.isValidPassword(pwd: password) {
+//            let loginSuccess: Bool = loginCheck(id: email, pwd: password)
+//            if loginSuccess {
+//                if let removable = self.view.viewWithTag(102) {
+//                    removable.removeFromSuperview()
+//                }
+//                self.performSegue(withIdentifier: "showMain", sender: self)
+//            }
+//
     }
 
     // Google

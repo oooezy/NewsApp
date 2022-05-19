@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="STO-iw-2l9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fBu-NB-dvL">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -18,10 +18,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Main View Controller-->
+        <!--Main-->
         <scene sceneID="RrS-36-D8h">
             <objects>
-                <viewController storyboardIdentifier="MainView" id="W2t-gK-o3o" customClass="MainViewController" customModule="NewsCheck" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainView" title="Main" id="W2t-gK-o3o" customClass="MainViewController" customModule="NewsCheck" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tfL-D6-svX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -429,6 +429,9 @@
                                                 <state key="normal" title="아이디 찾기">
                                                     <color key="titleColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="XHI-gY-Vlw" kind="show" id="gDA-YO-qss"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Mp-NE-kiH">
                                                 <rect key="frame" x="78" y="0.0" width="4" height="28"/>
@@ -443,6 +446,9 @@
                                                 <state key="normal" title="비밀번호 찾기">
                                                     <color key="titleColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="ptr-TD-4UA" kind="show" id="SBS-Lb-Wnm"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdA-dP-uP0">
                                                 <rect key="frame" x="182" y="0.0" width="4" height="28"/>
@@ -458,7 +464,7 @@
                                                     <color key="titleColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="CG1-90-iL4" kind="show" identifier="showSignUp" id="yze-iV-jIP"/>
+                                                    <segue destination="CG1-90-iL4" kind="show" id="5gg-GC-E8L"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -582,12 +588,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G9P-68-pPl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-843" y="-557"/>
+            <point key="canvasLocation" x="66.666666666666671" y="-557.14285714285711"/>
         </scene>
-        <!--Sign Up View Controller-->
+        <!--회원가입-->
         <scene sceneID="RZd-tN-nbb">
             <objects>
-                <viewController id="CG1-90-iL4" customClass="SignUpViewController" customModule="NewsCheck" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="CG1-90-iL4" customClass="SignUpViewController" customModule="NewsCheck" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IJU-5f-g4S">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -612,7 +618,7 @@
                                     </attributedString>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="TappedSignUpButton:" destination="CG1-90-iL4" eventType="touchUpInside" id="cBM-MI-yCM"/>
+                                    <action selector="didTapSignUpButton:" destination="CG1-90-iL4" eventType="touchUpInside" id="Fun-0J-3RH"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이메일" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DPz-x4-ZRp">
@@ -631,7 +637,7 @@
                                 </constraints>
                                 <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="NanumSquareOTFR" family="NanumSquareOTF" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호 확인" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bBS-uG-G83">
                                 <rect key="frame" x="24" y="294" width="366" height="48"/>
@@ -640,7 +646,7 @@
                                 </constraints>
                                 <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="NanumSquareOTFR" family="NanumSquareOTF" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YFl-9J-IdI"/>
@@ -661,21 +667,19 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="4LD-a4-fdZ">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="backButton" id="vpW-u2-wGc"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="회원가입" id="4LD-a4-fdZ"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="confirmButton" destination="6FD-oH-DFC" id="xes-Uw-7qb"/>
                         <outlet property="emailTextField" destination="DPz-x4-ZRp" id="vX5-dm-dv1"/>
                         <outlet property="keyboardHeightConstraint" destination="Dgb-w7-oLe" id="kfs-0C-0hn"/>
                         <outlet property="passwordConfirmTextField" destination="bBS-uG-G83" id="gB5-6s-WVh"/>
                         <outlet property="passwordTextField" destination="HZh-Pn-plt" id="iJs-PV-8PX"/>
+                        <outlet property="signUpButton" destination="6FD-oH-DFC" id="xes-Uw-7qb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kPK-fc-Q3I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="499" y="-119"/>
+            <point key="canvasLocation" x="1408.6956521739132" y="-119.19642857142857"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="wGk-3z-7zh">
@@ -698,11 +702,12 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6O0-4M-lE8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1881" y="-557"/>
+            <point key="canvasLocation" x="2789.8550724637685" y="-557.14285714285711"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sn5-Ae-7pv">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l6U-b5-caF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lde-J2-uUg" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Home_ic" landscapeImage="Home_ic" selectedImage="Home_s_ic" id="dz3-QD-yfj">
                         <color key="badgeColor" red="0.96078431369999995" green="0.70196078429999997" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -717,27 +722,8 @@
                         <segue destination="W2t-gK-o3o" kind="relationship" relationship="rootViewController" id="lRU-LN-hAX"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="l6U-b5-caF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1059" y="957"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="RR6-J5-75l">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="STO-iw-2l9" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3lB-sG-JhL">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="SAf-eE-o7A" kind="relationship" relationship="rootViewController" id="UkV-0B-FEx"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tgi-jp-F9i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1786" y="-557"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="f88-Dc-LBL">
@@ -760,6 +746,56 @@
             </objects>
             <point key="canvasLocation" x="3150.7246376811595" y="915.40178571428567"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="VqR-uq-eI1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fBu-NB-dvL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0V4-aT-HSm">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="SAf-eE-o7A" kind="relationship" relationship="rootViewController" id="7xf-VU-orI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dhN-vZ-xqv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-843.47826086956525" y="-557.14285714285711"/>
+        </scene>
+        <!--비밀번호 찾기-->
+        <scene sceneID="Dcb-0e-mPY">
+            <objects>
+                <viewController id="ptr-TD-4UA" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Tp-Dg-6df">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Mzs-Qc-ASA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="비밀번호 찾기" id="RvL-Jh-kZP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q5i-J3-ZON" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1925" y="-1201"/>
+        </scene>
+        <!--아이디 찾기-->
+        <scene sceneID="f4I-nd-ZY7">
+            <objects>
+                <viewController id="XHI-gY-Vlw" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XqX-6n-oyP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="BVT-DT-aRu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="아이디 찾기" id="eBu-K6-dyc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="akh-vY-IJK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="977" y="-1201"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Apple" width="44" height="44"/>
@@ -768,7 +804,6 @@
         <image name="Search_ic" width="22" height="21"/>
         <image name="Search_s_ic" width="22" height="21"/>
         <image name="addBookmark_ic" width="43" height="51"/>
-        <image name="backButton" width="9" height="16"/>
         <image name="bookmark_ic" width="16" height="20"/>
         <image name="google" width="44" height="44"/>
         <image name="kakao" width="44" height="44"/>

@@ -23,16 +23,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
-                
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
-        if isLogged == false {
-            guard let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginView") as? LoginViewController else { return }
-            window?.rootViewController = loginVC
-        } else {
-            guard let mainVC = storyboard.instantiateViewController(withIdentifier: "MainView") as? MainViewController else { return }
-            window?.rootViewController = mainVC
-        }
+//                
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//
+//        if isLogged == false {
+//            guard let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginView") as? LoginViewController else { return }
+//            window?.rootViewController = loginVC
+//        } else {
+//            guard let mainVC = storyboard.instantiateViewController(withIdentifier: "MainView") as? MainViewController else { return }
+//            window?.rootViewController = mainVC
+//        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
