@@ -420,30 +420,13 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cnH-Ey-fNe">
-                                        <rect key="frame" x="83.5" y="444.5" width="247" height="28"/>
+                                        <rect key="frame" x="123" y="444.5" width="168" height="28"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dsq-6p-hTm">
-                                                <rect key="frame" x="0.0" y="0.0" width="68" height="28"/>
-                                                <fontDescription key="fontDescription" name="NanumSquareOTFR" family="NanumSquareOTF" pointSize="14"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="아이디 찾기">
-                                                    <color key="titleColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <segue destination="XHI-gY-Vlw" kind="show" id="gDA-YO-qss"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Mp-NE-kiH">
-                                                <rect key="frame" x="78" y="0.0" width="4" height="28"/>
-                                                <fontDescription key="fontDescription" name="NanumSquareOTFR" family="NanumSquareOTF" pointSize="14"/>
-                                                <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yoH-bd-d5s">
-                                                <rect key="frame" x="92" y="0.0" width="80" height="28"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="93" height="28"/>
                                                 <fontDescription key="fontDescription" name="NanumSquareOTFR" family="NanumSquareOTF" pointSize="14"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="비밀번호 찾기">
+                                                <state key="normal" title="비밀번호 재설정">
                                                     <color key="titleColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -451,13 +434,13 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdA-dP-uP0">
-                                                <rect key="frame" x="182" y="0.0" width="4" height="28"/>
+                                                <rect key="frame" x="103" y="0.0" width="4" height="28"/>
                                                 <fontDescription key="fontDescription" name="NanumSquareOTFR" family="NanumSquareOTF" pointSize="14"/>
                                                 <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="leH-Pn-LhI">
-                                                <rect key="frame" x="196" y="0.0" width="51" height="28"/>
+                                                <rect key="frame" x="117" y="0.0" width="51" height="28"/>
                                                 <fontDescription key="fontDescription" name="NanumSquareOTFR" family="NanumSquareOTF" pointSize="14"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="회원가입">
@@ -764,37 +747,66 @@
             </objects>
             <point key="canvasLocation" x="-843.47826086956525" y="-557.14285714285711"/>
         </scene>
-        <!--비밀번호 찾기-->
+        <!--비밀번호 재설정-->
         <scene sceneID="Dcb-0e-mPY">
             <objects>
-                <viewController id="ptr-TD-4UA" sceneMemberID="viewController">
+                <viewController id="ptr-TD-4UA" customClass="FindPwdViewController" customModule="NewsCheck" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Tp-Dg-6df">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이메일" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BN1-Ui-GwZ">
+                                <rect key="frame" x="24" y="138" width="366" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="p7X-9R-dZ0"/>
+                                </constraints>
+                                <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="NanumSquareOTFR" family="NanumSquareOTF" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JrN-V4-goa">
+                                <rect key="frame" x="24" y="794" width="366" height="48"/>
+                                <color key="backgroundColor" red="0.96078431369999995" green="0.70196078429999997" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="bIm-pV-ML1"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="비밀번호 재설정">
+                                            <attributes>
+                                                <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                <font key="NSFont" size="14" name="NanumSquareOTFB"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="didTapFindPwdButton:" destination="ptr-TD-4UA" eventType="touchUpInside" id="Od4-YC-WKv"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Mzs-Qc-ASA"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Mzs-Qc-ASA" firstAttribute="bottom" secondItem="JrN-V4-goa" secondAttribute="bottom" constant="20" id="7Q6-OD-QlA"/>
+                            <constraint firstItem="Mzs-Qc-ASA" firstAttribute="trailing" secondItem="JrN-V4-goa" secondAttribute="trailing" constant="24" id="IgK-IP-BNQ"/>
+                            <constraint firstItem="JrN-V4-goa" firstAttribute="leading" secondItem="Mzs-Qc-ASA" secondAttribute="leading" constant="24" id="Ju6-Sg-2aq"/>
+                            <constraint firstItem="Mzs-Qc-ASA" firstAttribute="trailing" secondItem="BN1-Ui-GwZ" secondAttribute="trailing" constant="24" id="McO-Rw-e3h"/>
+                            <constraint firstItem="BN1-Ui-GwZ" firstAttribute="leading" secondItem="Mzs-Qc-ASA" secondAttribute="leading" constant="24" id="y5i-2v-KZp"/>
+                            <constraint firstItem="BN1-Ui-GwZ" firstAttribute="top" secondItem="Mzs-Qc-ASA" secondAttribute="top" constant="50" id="zed-6Q-MU1"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="비밀번호 찾기" id="RvL-Jh-kZP"/>
+                    <navigationItem key="navigationItem" title="비밀번호 재설정" id="RvL-Jh-kZP"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="BN1-Ui-GwZ" id="ldU-3v-g14"/>
+                        <outlet property="findPwdButton" destination="JrN-V4-goa" id="8Qg-1Y-FzR"/>
+                        <outlet property="keyboardHeightConstraint" destination="7Q6-OD-QlA" id="Lup-ts-ErQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q5i-J3-ZON" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1925" y="-1201"/>
-        </scene>
-        <!--아이디 찾기-->
-        <scene sceneID="f4I-nd-ZY7">
-            <objects>
-                <viewController id="XHI-gY-Vlw" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="XqX-6n-oyP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="BVT-DT-aRu"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="아이디 찾기" id="eBu-K6-dyc"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="akh-vY-IJK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="977" y="-1201"/>
         </scene>
     </scenes>
     <resources>

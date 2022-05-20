@@ -20,6 +20,7 @@
 		C00BAD8627EA219F00134BEA /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00BAD8527EA219F00134BEA /* UIFont + Extension.swift */; };
 		C00BAD8A27EA21B900134BEA /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00BAD8927EA21B900134BEA /* UIColor + Extension.swift */; };
 		C00BAD8D27EA2C9600134BEA /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00BAD8C27EA2C9500134BEA /* UILabel + Extension.swift */; };
+		C04DDB302838058C00A2F14E /* FindPwdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DDB2F2838058C00A2F14E /* FindPwdViewController.swift */; };
 		C0524236283107100034B66B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0524235283107100034B66B /* GoogleService-Info.plist */; };
 		C065DE022830A00B000AD2C3 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C065DE012830A00B000AD2C3 /* UserModel.swift */; };
 		C065DE042830A0CF000AD2C3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C065DE032830A0CF000AD2C3 /* LoginViewController.swift */; };
@@ -66,6 +67,7 @@
 		C00BAD8527EA219F00134BEA /* UIFont + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extension.swift"; sourceTree = "<group>"; };
 		C00BAD8927EA21B900134BEA /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		C00BAD8C27EA2C9500134BEA /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
+		C04DDB2F2838058C00A2F14E /* FindPwdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPwdViewController.swift; sourceTree = "<group>"; };
 		C0524235283107100034B66B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C065DE012830A00B000AD2C3 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		C065DE032830A0CF000AD2C3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				C065DE052830A49F000AD2C3 /* SignUpViewController.swift */,
 				C09D072328336E88007D527B /* BookmarkViewController.swift */,
 				C0E74BC52834C6A800335FE7 /* SettingViewController.swift */,
+				C04DDB2F2838058C00A2F14E /* FindPwdViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				C0E74BCC2834D8BB00335FE7 /* UIWindow + Extension.swift in Sources */,
 				C0E74BC62834C6A800335FE7 /* SettingViewController.swift in Sources */,
 				C0A5A1D828150D4B0030A49B /* NewsCollectionViewCell.swift in Sources */,
+				C04DDB302838058C00A2F14E /* FindPwdViewController.swift in Sources */,
 				C065DE062830A49F000AD2C3 /* SignUpViewController.swift in Sources */,
 				C00082FE281F8A9C006D61C1 /* SliderCollectionViewCell.swift in Sources */,
 				C00BAD8A27EA21B900134BEA /* UIColor + Extension.swift in Sources */,
