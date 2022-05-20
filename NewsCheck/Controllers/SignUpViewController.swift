@@ -234,11 +234,7 @@ class SignUpViewController: UIViewController {
                         }
 
                     }
-                    print("회원가입 실패")
-                    self.showMainViewController()
                 } else {
-                    print("회원가입 성공")
-                    dump(user)
                     self.showMainViewController()
                 }
             }

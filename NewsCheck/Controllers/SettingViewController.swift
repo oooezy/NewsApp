@@ -21,6 +21,7 @@ class SettingViewController: UIViewController {
         navigationItem.backButtonTitle = ""
         
         setUpTableView()
+        
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = 1
         }
@@ -79,7 +80,6 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         cell.settingLabel.font = UIFont.NanumSquare(type: .Regular, size: 16)
         cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             
-        // get Version
         let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
         let versionLabel = UILabel()
         versionLabel.text = version
@@ -95,15 +95,20 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        // 로그아웃
         if indexPath[0] == 0 && indexPath[1] == 0 {
             let alert = UIAlertController(title:"로그아웃 하시겠습니까?",
                 message: "",
                 preferredStyle: UIAlertController.Style.alert)
 
-            let yes = UIAlertAction(title: "확인", style: .destructive, handler: {
-                action in
+            let no = UIAlertAction(title: "취소", style: .default, handler: nil)
+            
+            let yes = UIAlertAction(title: "확인", style: .destructive, handler: { action in
                 let firebaseAuth = Auth.auth()
+                
                 do {
                     try firebaseAuth.signOut()
                     self.navigationController?.popToRootViewController(animated: true)
@@ -112,31 +117,31 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
                     print("ERROR: signout \(signOutError.localizedDescription)")
                 }
             })
-            let no = UIAlertAction(title: "취소", style: .default, handler: nil)
             
             alert.addAction(yes)
             alert.addAction(no)
             
             present(alert,animated: true,completion: nil)
-        } else if indexPath[0] == 0 && indexPath[1] == 1 {
-            let alert = UIAlertController(title:"탈퇴 하시겠습니까?",
+        } else if indexPath[0] == 0 && indexPath[1] == 1 { // 계정삭제
+            let alert = UIAlertController(title:"계정을 삭제하시겠습니까?",
                 message: "",
                 preferredStyle: UIAlertController.Style.alert)
 
-            let yes = UIAlertAction(title: "확인", style: .destructive, handler: { action in
-        
-                    let user = Auth.auth().currentUser
-
-                    user?.delete { error in
-                      if let error = error {
-                          print("ERROR: \(error)")
-                      } else {
-                          print("회원탈퇴 완료!")
-                          self.navigationController?.popToRootViewController(animated: true)
-                      }
-                    }
-            })
             let no = UIAlertAction(title: "취소", style: .default, handler: nil)
+            
+            let yes = UIAlertAction(title: "확인", style: .destructive, handler: { action in
+                let user = Auth.auth().currentUser
+
+                user?.delete { error in
+                  if let error = error {
+                      print("ERROR: \(error)")
+                  } else {
+                      print("회원탈퇴 완료!")
+                      self.navigationController?.popToRootViewController(animated: true)
+                  }
+                }
+            })
+            
             alert.addAction(yes)
             alert.addAction(no)
             
