@@ -12,7 +12,7 @@ class SettingViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
 
-    let settingList = ["로그아웃", "회원탈퇴"]
+    let settingList = ["로그아웃", "계정삭제"]
     let etcList = ["버전"]
     
     override func viewDidLoad() {
@@ -73,7 +73,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell", for: indexPath) as! SettingTableViewCell
         
-        let text: String = settingList[indexPath.row]
+        let text: String = indexPath.section == 0 ? settingList[indexPath.row] : etcList[indexPath.row]
         cell.settingLabel.text = text
         cell.settingLabel.textColor = UIColor.fontColorGray
         cell.settingLabel.font = UIFont.NanumSquare(type: .Regular, size: 16)
@@ -103,13 +103,9 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
 
             let yes = UIAlertAction(title: "확인", style: .destructive, handler: {
                 action in
-
+                let firebaseAuth = Auth.auth()
                 do {
-                    if let delegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
-                            delegate.isLogged = false // 로그아웃 실행
-                    }
-                    
-                    try Auth.auth().signOut()
+                    try firebaseAuth.signOut()
                     self.navigationController?.popToRootViewController(animated: true)
                 }
                 catch let signOutError as NSError {
@@ -127,16 +123,18 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
                 message: "",
                 preferredStyle: UIAlertController.Style.alert)
 
-            let yes = UIAlertAction(title: "확인", style: .destructive, handler: {
-                action in
-                // 회원탈퇴 구현
-                do {
-                    try Auth.auth().signOut()
-                    print("회원탈퇴 완료!")
-                    self.navigationController?.popToRootViewController(animated: true)
-                } catch let signOutError as NSError {
-                    print("ERROR: signout \(signOutError.localizedDescription)")
-                }
+            let yes = UIAlertAction(title: "확인", style: .destructive, handler: { action in
+        
+                    let user = Auth.auth().currentUser
+
+                    user?.delete { error in
+                      if let error = error {
+                          print("ERROR: \(error)")
+                      } else {
+                          print("회원탈퇴 완료!")
+                          self.navigationController?.popToRootViewController(animated: true)
+                      }
+                    }
             })
             let no = UIAlertAction(title: "취소", style: .default, handler: nil)
             alert.addAction(yes)

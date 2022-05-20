@@ -16,6 +16,7 @@ import KakaoSDKUser
 import CryptoKit
 
 class LoginViewController: UIViewController {
+    
     var userModel = UserModel()
     private var currentNonce: String?
     
@@ -34,9 +35,8 @@ class LoginViewController: UIViewController {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .lightBGColor
         
-        setUpUI()
+        configureUI()
         
         loginButton.addTarget(self, action: #selector(didEndOnExit), for: UIControl.Event.editingDidEndOnExit)
         emailTextField.addTarget(self, action: #selector(didEndOnExit), for: UIControl.Event.editingDidEndOnExit)
@@ -47,7 +47,7 @@ class LoginViewController: UIViewController {
          self.view.endEditing(true)
     }
     
-    func setUpUI() {
+    func configureUI() {
         emailTextField.addLeftPadding()
         passwordTextField.addLeftPadding()
         
@@ -64,40 +64,17 @@ class LoginViewController: UIViewController {
         loginButton.layer.cornerRadius = 10
     }
     
-    func loginCheck(id: String, pwd: String) -> Bool {
-        for user in userModel.users {
-            if user.email == id && user.password == pwd {
-                return true
-            }
-        }
-        return false
-    }
-    
-    func shakeTextField(textField: UITextField) -> Void {
-        UIView.animate(withDuration: 0.2, animations: {
-            textField.frame.origin.x -= 5
-        }, completion: { _ in
-            UIView.animate(withDuration: 0.2, animations: {
-                textField.frame.origin.x += 10
-             }, completion: { _ in
-                 UIView.animate(withDuration: 0.2, animations: {
-                    textField.frame.origin.x -= 5
-                })
-            })
-        })
-    }
-    
     // MARK: - IBAction
     @IBAction func didTapLoginButton(_ sender: UIButton) {
         guard let email = emailTextField.text, !email.isEmpty else { return }
         guard let password = passwordTextField.text, !password.isEmpty else { return }
-            
+        
         if userModel.isValidEmail(id: email) {
             if let removable = self.view.viewWithTag(100) {
                 removable.removeFromSuperview()
             }
         } else {
-        shakeTextField(textField: emailTextField)
+            emailTextField.shakeTextField()
         let emailLabel: UILabel = {
             let label = UILabel()
             
@@ -122,7 +99,7 @@ class LoginViewController: UIViewController {
                 removable.removeFromSuperview()
             }
         } else {
-            shakeTextField(textField: passwordTextField)
+            passwordTextField.shakeTextField()
             let passwordLabel: UILabel = {
                 let label = UILabel()
                 
@@ -142,23 +119,13 @@ class LoginViewController: UIViewController {
         }
             
         Auth.auth().signIn(withEmail: email, password: password) {[weak self] authResult, error in
-            if let e = error {
-                self?.shakeTextField(textField: self!.emailTextField)
-                self?.shakeTextField(textField: self!.passwordTextField)
-            } else {
+            if authResult != nil {
                 self?.performSegue(withIdentifier: "showMain", sender: self)
+            } else {
+                self?.emailTextField.shakeTextField()
+                self?.passwordTextField.shakeTextField()
             }
         }
-        
-//        if userModel.isValidEmail(id: email) && userModel.isValidPassword(pwd: password) {
-//            let loginSuccess: Bool = loginCheck(id: email, pwd: password)
-//            if loginSuccess {
-//                if let removable = self.view.viewWithTag(102) {
-//                    removable.removeFromSuperview()
-//                }
-//                self.performSegue(withIdentifier: "showMain", sender: self)
-//            }
-//
     }
 
     // Google
@@ -302,7 +269,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
     
     // Apple ID 연동 실패 시
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        // Handle error.
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }
 

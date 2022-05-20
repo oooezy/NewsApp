@@ -13,4 +13,18 @@ extension UITextField {
         self.leftView = paddingView
         self.leftViewMode = ViewMode.always
     }
+    
+    func shakeTextField() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.frame.origin.x -= 5
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.2, animations: {
+                self.frame.origin.x += 10
+             }, completion: { _ in
+                 UIView.animate(withDuration: 0.2, animations: {
+                     self.frame.origin.x -= 5
+                })
+            })
+        })
+    }
 }

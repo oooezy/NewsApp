@@ -376,7 +376,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="464.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="titleLogo" translatesAutoresizingMaskIntoConstraints="NO" id="DfW-o8-WjB">
-                                        <rect key="frame" x="0.0" y="120.5" width="414" height="40"/>
+                                        <rect key="frame" x="0.0" y="100.5" width="414" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Y8e-eg-Ynd"/>
                                         </constraints>
@@ -470,10 +470,10 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="DfW-o8-WjB" firstAttribute="leading" secondItem="mgv-sM-TFJ" secondAttribute="leading" id="1In-Fu-L5k"/>
-                                    <constraint firstItem="nbR-Nf-3qn" firstAttribute="top" secondItem="DfW-o8-WjB" secondAttribute="bottom" constant="50" id="D6y-h5-Xb9"/>
+                                    <constraint firstItem="nbR-Nf-3qn" firstAttribute="top" secondItem="DfW-o8-WjB" secondAttribute="bottom" constant="70" id="D6y-h5-Xb9"/>
                                     <constraint firstAttribute="trailing" secondItem="ox4-cV-aud" secondAttribute="trailing" constant="24" id="FUW-2i-h99"/>
                                     <constraint firstAttribute="trailing" secondItem="DfW-o8-WjB" secondAttribute="trailing" id="Jks-2f-Vqe"/>
                                     <constraint firstItem="Mac-gl-EY5" firstAttribute="leading" secondItem="mgv-sM-TFJ" secondAttribute="leading" constant="24" id="O5g-IB-CBM"/>
@@ -493,7 +493,7 @@
                                 <rect key="frame" x="0.0" y="552.5" width="414" height="309.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="77c-x5-UxE" userLabel="TitleStackView">
-                                        <rect key="frame" x="59.5" y="50" width="295" height="20.5"/>
+                                        <rect key="frame" x="59.5" y="70" width="295" height="20.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line" translatesAutoresizingMaskIntoConstraints="NO" id="VmK-Al-5Bw">
                                                 <rect key="frame" x="0.0" y="9.5" width="65" height="1"/>
@@ -510,7 +510,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="n6Z-1R-QB9" userLabel="SocialStackView">
-                                        <rect key="frame" x="121" y="90.5" width="172" height="44"/>
+                                        <rect key="frame" x="121" y="110.5" width="172" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ISU-TW-uj7" userLabel="google">
                                                 <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
@@ -551,12 +551,12 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="77c-x5-UxE" firstAttribute="centerX" secondItem="CxB-ve-nmu" secondAttribute="centerX" id="aq4-c4-e0H"/>
                                     <constraint firstItem="n6Z-1R-QB9" firstAttribute="top" secondItem="77c-x5-UxE" secondAttribute="bottom" constant="20" id="coM-QI-2Xt"/>
                                     <constraint firstItem="n6Z-1R-QB9" firstAttribute="centerX" secondItem="CxB-ve-nmu" secondAttribute="centerX" id="hJc-un-Vn1"/>
-                                    <constraint firstItem="77c-x5-UxE" firstAttribute="top" secondItem="CxB-ve-nmu" secondAttribute="top" constant="50" id="ziI-DL-vxs"/>
+                                    <constraint firstItem="77c-x5-UxE" firstAttribute="top" secondItem="CxB-ve-nmu" secondAttribute="top" constant="70" id="ziI-DL-vxs"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -650,7 +650,7 @@
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YFl-9J-IdI"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="YFl-9J-IdI" firstAttribute="trailing" secondItem="6FD-oH-DFC" secondAttribute="trailing" constant="24" id="43o-6A-LI5"/>
                             <constraint firstItem="6FD-oH-DFC" firstAttribute="leading" secondItem="YFl-9J-IdI" secondAttribute="leading" constant="24" id="4hH-pP-tov"/>
