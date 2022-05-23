@@ -41,7 +41,7 @@ class SearchViewController: UIViewController {
         setUpTableView()
         fetch(with: "business")
     }
-
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
          self.view.endEditing(true)
    }
@@ -93,7 +93,6 @@ class SearchViewController: UIViewController {
             }
         }
     }
-    
     
     // MARK: -IBAction
     @IBAction func buttonPressed(_ sender: UIButton) {
@@ -163,15 +162,17 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell", for: indexPath) as!
                 ListTableViewCell
+
         cell.delegate = self
         cell.configureCell(with: viewModels[indexPath.row])
+        
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
         let article = articles[indexPath.row]
-
         guard let url = URL(string: article.url ?? "") else { return }
 
         let vc = SFSafariViewController(url: url)
@@ -183,19 +184,18 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+
 extension SearchViewController: ListTVCellDelegate {
-    func didTapBookmarkButton(_ cell: ListTableViewCell) {
+    func addBookmarkList(_ cell: ListTableViewCell, index: Int) {
         let title = cell.titleLabel.text!
         let author = cell.authorLabel.text ?? ""
         let date = cell.dateLabel.text ?? ""
-        
-        if let bookmarkVC = storyboard?.instantiateViewController(withIdentifier: "BookmarkViewController") as? BookmarkViewController {
-//            bookmarkVC.bookmarkArr.append([title, author, date])
+        let url = cell.imgURL ?? ""
 
-            bookmarkVC.bookmarkTitle = title
-            bookmarkVC.author = author
-            bookmarkVC.date = date
-        }
-//        bookmarkVC.bookmarkArr.append([title, author, date])
+        bookmarkArr.append(contentsOf: [[title, author, date, url]])
+    }
+    
+    func removeBookmarkList(_ cell: ListTableViewCell, index: Int) {
+        bookmarkArr.remove(at: index)
     }
 }

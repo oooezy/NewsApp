@@ -65,7 +65,7 @@
                                         <state key="normal" image="bookmark_Off"/>
                                         <state key="selected" image="bookmark_On"/>
                                         <connections>
-                                            <action selector="didTapBookmark:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="tc1-lv-zth"/>
+                                            <action selector="didTapBookmark:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="WM8-kR-Nf8"/>
                                         </connections>
                                     </button>
                                 </subviews>

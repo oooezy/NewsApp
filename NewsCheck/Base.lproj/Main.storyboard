@@ -101,7 +101,7 @@
         <!--Search View Controller-->
         <scene sceneID="0Hp-pd-y2f">
             <objects>
-                <viewController id="dTr-wN-IAp" customClass="SearchViewController" customModule="NewsCheck" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchViewController" id="dTr-wN-IAp" customClass="SearchViewController" customModule="NewsCheck" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vB0-wr-cAd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -319,45 +319,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eey-YQ-7Od">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vug-5W-qwf" userLabel="TableView">
                                 <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addBookmark_ic" translatesAutoresizingMaskIntoConstraints="NO" id="Vwt-oD-s5a">
-                                        <rect key="frame" x="122" y="249.5" width="170" height="58"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="58" id="Fke-86-h2a"/>
-                                            <constraint firstAttribute="width" constant="170" id="SOD-3n-Gic"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나중에 보고 싶은 뉴스를 저장해주세요." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOf-B9-L8o">
-                                        <rect key="frame" x="80.5" y="327.5" width="253" height="18"/>
-                                        <fontDescription key="fontDescription" name="NanumSquareOTFR" family="NanumSquareOTF" pointSize="16"/>
-                                        <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="kXO-Ef-Wl7">
+                                        <rect key="frame" x="24" y="0.0" width="366" height="673"/>
+                                        <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="OOf-B9-L8o" firstAttribute="centerY" secondItem="eey-YQ-7Od" secondAttribute="centerY" id="5Hm-8h-UwT"/>
-                                    <constraint firstItem="Vwt-oD-s5a" firstAttribute="centerX" secondItem="eey-YQ-7Od" secondAttribute="centerX" id="Xpn-yO-wwf"/>
-                                    <constraint firstItem="OOf-B9-L8o" firstAttribute="centerX" secondItem="eey-YQ-7Od" secondAttribute="centerX" id="YW7-dm-om0"/>
-                                    <constraint firstItem="OOf-B9-L8o" firstAttribute="top" secondItem="Vwt-oD-s5a" secondAttribute="bottom" constant="20" id="uSf-bj-joO"/>
+                                    <constraint firstItem="kXO-Ef-Wl7" firstAttribute="top" secondItem="Vug-5W-qwf" secondAttribute="top" id="gCN-CS-EQr"/>
+                                    <constraint firstAttribute="trailing" secondItem="kXO-Ef-Wl7" secondAttribute="trailing" constant="24" id="ktC-Ci-oi2"/>
+                                    <constraint firstAttribute="bottom" secondItem="kXO-Ef-Wl7" secondAttribute="bottom" id="rak-rq-PqP"/>
+                                    <constraint firstItem="kXO-Ef-Wl7" firstAttribute="leading" secondItem="Vug-5W-qwf" secondAttribute="leading" constant="24" id="vX5-Nf-FIU"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dtX-XO-cS2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="eey-YQ-7Od" firstAttribute="top" secondItem="dtX-XO-cS2" secondAttribute="top" id="B83-TQ-yta"/>
-                            <constraint firstItem="eey-YQ-7Od" firstAttribute="leading" secondItem="dtX-XO-cS2" secondAttribute="leading" id="Vpw-Zj-4br"/>
-                            <constraint firstItem="dtX-XO-cS2" firstAttribute="trailing" secondItem="eey-YQ-7Od" secondAttribute="trailing" id="m4i-xO-l3Z"/>
-                            <constraint firstItem="dtX-XO-cS2" firstAttribute="bottom" secondItem="eey-YQ-7Od" secondAttribute="bottom" id="ycN-nf-dZH"/>
+                            <constraint firstItem="Vug-5W-qwf" firstAttribute="top" secondItem="dtX-XO-cS2" secondAttribute="top" id="Ohg-Rj-st4"/>
+                            <constraint firstItem="Vug-5W-qwf" firstAttribute="leading" secondItem="dtX-XO-cS2" secondAttribute="leading" id="ST6-xw-Eqq"/>
+                            <constraint firstItem="dtX-XO-cS2" firstAttribute="bottom" secondItem="Vug-5W-qwf" secondAttribute="bottom" id="fID-2V-vjx"/>
+                            <constraint firstItem="dtX-XO-cS2" firstAttribute="trailing" secondItem="Vug-5W-qwf" secondAttribute="trailing" id="wQx-nn-4Ej"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="북마크" largeTitleDisplayMode="always" id="wdW-AS-FVc"/>
                     <connections>
-                        <outlet property="bookmarkImageView" destination="Vwt-oD-s5a" id="mNU-Ea-HFx"/>
-                        <outlet property="textLabel" destination="OOf-B9-L8o" id="F9S-mW-zHX"/>
+                        <outlet property="tableView" destination="kXO-Ef-Wl7" id="oy8-ul-WLa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aTQ-aK-ck7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -690,7 +680,6 @@
         <!--Navigation Controller-->
         <scene sceneID="sn5-Ae-7pv">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="l6U-b5-caF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lde-J2-uUg" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Home_ic" landscapeImage="Home_ic" selectedImage="Home_s_ic" id="dz3-QD-yfj">
                         <color key="badgeColor" red="0.96078431369999995" green="0.70196078429999997" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -705,6 +694,7 @@
                         <segue destination="W2t-gK-o3o" kind="relationship" relationship="rootViewController" id="lRU-LN-hAX"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l6U-b5-caF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1059" y="957"/>
         </scene>
@@ -815,7 +805,6 @@
         <image name="Home_s_ic" width="22" height="19"/>
         <image name="Search_ic" width="22" height="21"/>
         <image name="Search_s_ic" width="22" height="21"/>
-        <image name="addBookmark_ic" width="43" height="51"/>
         <image name="bookmark_ic" width="16" height="20"/>
         <image name="google" width="44" height="44"/>
         <image name="kakao" width="44" height="44"/>

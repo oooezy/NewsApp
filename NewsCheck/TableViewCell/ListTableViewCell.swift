@@ -7,8 +7,9 @@
 
 import UIKit
 
-protocol ListTVCellDelegate {
-    func didTapBookmarkButton(_ cell: ListTableViewCell)
+protocol ListTVCellDelegate: AnyObject {
+    func addBookmarkList(_ cell: ListTableViewCell, index: Int)
+    func removeBookmarkList(_ cell: ListTableViewCell, index: Int)
 }
 
 class ListTableViewCell: UITableViewCell {
@@ -18,10 +19,13 @@ class ListTableViewCell: UITableViewCell {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var bookmarkButton: UIButton!
-    
+
     var viewModels = [NewsTableViewCellViewModel]()
-    var delegate: ListTVCellDelegate?
+    weak var delegate: ListTVCellDelegate?
+    
     var isChecked = false
+    var bookmarkCount: Int = 0
+    var imgURL: String? = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -62,6 +66,7 @@ class ListTableViewCell: UITableViewCell {
         if let data = viewModel.imageData {
             thumbImageView.image = UIImage(data: data)
         } else if let url = viewModel.imageURL {
+            imgURL = String(describing: url)
             URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
                 guard let data = data, error == nil else {
                     return
@@ -78,14 +83,17 @@ class ListTableViewCell: UITableViewCell {
     
     @IBAction func didTapBookmark(_ sender: UIButton) {
         isChecked = !isChecked
-        if isChecked {
-            bookmarkButton.setImage(UIImage(named: "bookmark_On"), for: .normal)
-        } else {
-            bookmarkButton.setImage(UIImage(named: "bookmark_Off"), for: .normal)
-        }
         
-        delegate?.didTapBookmarkButton(self)
+        if isChecked {
+            bookmarkCount += 1
+            bookmarkButton.setImage(UIImage(named: "bookmark_On"), for: .normal)
+            delegate?.addBookmarkList(self, index: bookmarkCount - 1)
 
+        } else {
+            bookmarkCount -= 1
+            bookmarkButton.setImage(UIImage(named: "bookmark_Off"), for: .normal)
+            delegate?.removeBookmarkList(self, index: bookmarkCount)
+        }
     }
-    
+
 }
