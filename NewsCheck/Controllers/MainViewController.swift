@@ -29,6 +29,8 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .lightBGColor
         
+        self.navigationItem.hidesBackButton = true
+        
         let image = UIImage(named: "navigationLogo")
         navigationItem.titleView = UIImageView(image: image)
         
@@ -38,6 +40,8 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        
         fetchTopStories()
         fetchStories()
     }

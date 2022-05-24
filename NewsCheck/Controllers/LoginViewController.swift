@@ -25,13 +25,13 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var autoLoginButton: UIButton!
     
     @IBOutlet weak var buttonContainerStackView: UIStackView!
     @IBOutlet weak var googleSignInButton: GIDSignInButton!
     @IBOutlet weak var kakaoSignInButton: UIButton!
     @IBOutlet weak var appleSignInButton: UIButton!
 
-    
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +41,18 @@ class LoginViewController: UIViewController {
         loginButton.addTarget(self, action: #selector(didEndOnExit), for: UIControl.Event.editingDidEndOnExit)
         emailTextField.addTarget(self, action: #selector(didEndOnExit), for: UIControl.Event.editingDidEndOnExit)
         passwordTextField.addTarget(self, action: #selector(didEndOnExit), for: UIControl.Event.editingDidEndOnExit)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        if let autoLogin = UserDefaults.standard.string(forKey: "autoLogin") {
+            if autoLogin == "true" && Auth.auth().currentUser != nil {
+                self.performSegue(withIdentifier: "showMain", sender: self)
+            } else {
+                return
+            }
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -128,6 +140,16 @@ class LoginViewController: UIViewController {
         }
     }
 
+    @IBAction func autoLoginAction(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        
+        if sender.isSelected == true {
+            UserDefaults.standard.set("true", forKey: "autoLogin")
+        } else {
+            UserDefaults.standard.set("false", forKey: "autoLogin")
+        }
+    }
+    
     // Google
     @IBAction func googleLoginButtonTapped(_ sender: UIButton) {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }

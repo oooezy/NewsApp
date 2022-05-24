@@ -99,9 +99,9 @@ class SignUpViewController: UIViewController {
     
     private func showMainViewController() {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let mainVC = storyboard.instantiateViewController(withIdentifier: "MainView")
+        let mainVC = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
         mainVC.modalPresentationStyle = .fullScreen
-        self.navigationController?.pushViewController(mainVC, animated: true)
+        self.present(mainVC, animated: true, completion: nil)
     }
 
     // MARK: - IBAction

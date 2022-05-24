@@ -17,19 +17,22 @@ class SettingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationItem.backButtonTitle = ""
-        
-        setUpTableView()
+        self.navigationController?.navigationBar.topItem?.title = ""
+        self.navigationController?.navigationBar.tintColor = .fontColorGray
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.fontColorGray]
         
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = 1
         }
+        
+        setUpTableView()
     }
     
     func setUpTableView() {
         tableView.dataSource = self
         tableView.delegate = self
+        
+        tableView.separatorColor = UIColor(hex: 0xEAEAEA)
         
         let nibName = UINib(nibName: "SettingTableViewCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: "SettingTableViewCell")
@@ -83,14 +86,14 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
         let versionLabel = UILabel()
         versionLabel.text = version
-        cell.settingLabel.textColor = UIColor.fontColorGray
-        cell.settingLabel.font = UIFont.NanumSquare(type: .Regular, size: 16)
+        versionLabel.textColor = UIColor.fontColorGray
+        versionLabel.font = UIFont.NanumSquare(type: .Regular, size: 16)
         versionLabel.sizeToFit()
         
         if indexPath[0] == 1 {
             cell.accessoryView = versionLabel
         }
-            
+        
         return cell
     }
     
@@ -122,7 +125,8 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             alert.addAction(no)
             
             present(alert,animated: true,completion: nil)
-        } else if indexPath[0] == 0 && indexPath[1] == 1 { // 계정삭제
+        }
+        else if indexPath[0] == 0 && indexPath[1] == 1 { // 계정삭제
             let alert = UIAlertController(title:"계정을 삭제하시겠습니까?",
                 message: "",
                 preferredStyle: UIAlertController.Style.alert)

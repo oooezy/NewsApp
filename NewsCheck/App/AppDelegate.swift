@@ -15,12 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Firebase 초기화
         FirebaseApp.configure()
     
-        // Google 로그인 Delgate 초기화
-//        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
-//        GIDSignIn.sharedInstance().delegate = self
-        
         KakaoSDK.initSDK(appKey: "891b5ce0475623f2549eba40736a5130")
-
+        
         return true
     }
 

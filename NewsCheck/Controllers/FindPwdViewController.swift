@@ -19,7 +19,7 @@ class FindPwdViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "비밀번호 찾기"
+        self.title = "비밀번호 재설정"
         self.navigationController?.navigationBar.topItem?.title = ""
         self.navigationController?.navigationBar.tintColor = .fontColorGray
         
@@ -97,7 +97,16 @@ class FindPwdViewController: UIViewController {
                     emailLabel.leadingAnchor.constraint(equalTo: self.emailTextField.leadingAnchor)
                 ])
             } else {
-                self.navigationController?.popViewController(animated: true)
+                let alert = UIAlertController(title:"메일을 확인해주세요.",
+                    message: "",
+                    preferredStyle: UIAlertController.Style.alert)
+
+                let yes = UIAlertAction(title: "확인", style: .default, handler: { action in
+                    self.navigationController?.popViewController(animated: true)
+                })
+                
+                alert.addAction(yes)
+                self.present(alert, animated: true,completion: nil)
             }
         }
     }
