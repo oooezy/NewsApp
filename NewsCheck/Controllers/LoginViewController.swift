@@ -43,17 +43,17 @@ class LoginViewController: UIViewController {
         passwordTextField.addTarget(self, action: #selector(didEndOnExit), for: UIControl.Event.editingDidEndOnExit)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        
-        if let autoLogin = UserDefaults.standard.string(forKey: "autoLogin") {
-            if autoLogin == "true" && Auth.auth().currentUser != nil {
-                self.performSegue(withIdentifier: "showMain", sender: self)
-            } else {
-                return
-            }
-        }
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(true)
+//        
+//        if let autoLogin = UserDefaults.standard.string(forKey: "autoLogin") {
+//            if autoLogin == "true" && Auth.auth().currentUser != nil {
+//                self.performSegue(withIdentifier: "showMain", sender: self)
+//            } else {
+//                return
+//            }
+//        }
+//    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
          self.view.endEditing(true)

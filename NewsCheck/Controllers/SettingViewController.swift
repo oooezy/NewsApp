@@ -114,6 +114,10 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
                 
                 do {
                     try firebaseAuth.signOut()
+                    print("로그아웃 완료!")
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "LoginView")
+                    UIApplication.shared.keyWindow?.rootViewController = vc
                     self.navigationController?.popToRootViewController(animated: true)
                 }
                 catch let signOutError as NSError {
@@ -141,6 +145,9 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
                       print("ERROR: \(error)")
                   } else {
                       print("회원탈퇴 완료!")
+                      let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                      let vc = storyboard.instantiateViewController(withIdentifier: "LoginView")
+                      UIApplication.shared.keyWindow?.rootViewController = vc
                       self.navigationController?.popToRootViewController(animated: true)
                   }
                 }

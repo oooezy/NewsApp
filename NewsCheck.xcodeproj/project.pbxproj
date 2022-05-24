@@ -34,6 +34,7 @@
 		C09D072428336E88007D527B /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09D072328336E88007D527B /* BookmarkViewController.swift */; };
 		C09D072728337018007D527B /* BookmarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09D072528337018007D527B /* BookmarkTableViewCell.swift */; };
 		C09D072828337018007D527B /* BookmarkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C09D072628337018007D527B /* BookmarkTableViewCell.xib */; };
+		C0A07679283CF5950020593D /* UIWindow + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A07678283CF5950020593D /* UIWindow + Extension.swift */; };
 		C0A5A1D828150D4B0030A49B /* NewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A5A1D628150D4B0030A49B /* NewsCollectionViewCell.swift */; };
 		C0A5A1D928150D4B0030A49B /* NewsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0A5A1D728150D4B0030A49B /* NewsCollectionViewCell.xib */; };
 		C0B8ED4627EB8B4A00545C57 /* NanumSquareB.otf in Resources */ = {isa = PBXBuildFile; fileRef = C0B8ED4227EB8B4A00545C57 /* NanumSquareB.otf */; };
@@ -43,7 +44,6 @@
 		C0E74BC62834C6A800335FE7 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E74BC52834C6A800335FE7 /* SettingViewController.swift */; };
 		C0E74BC92834C80A00335FE7 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E74BC72834C80A00335FE7 /* SettingTableViewCell.swift */; };
 		C0E74BCA2834C80A00335FE7 /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0E74BC82834C80A00335FE7 /* SettingTableViewCell.xib */; };
-		C0E74BCC2834D8BB00335FE7 /* UIWindow + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E74BCB2834D8BB00335FE7 /* UIWindow + Extension.swift */; };
 		C0F5677427EAE3850039E49A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F5677327EAE3850039E49A /* MainViewController.swift */; };
 		FDEAD9DE0F58263420ACA52F /* Pods_NewsCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EEC1B4A9FE402F73654CC42 /* Pods_NewsCheck.framework */; };
 /* End PBXBuildFile section */
@@ -82,6 +82,7 @@
 		C09D072328336E88007D527B /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		C09D072528337018007D527B /* BookmarkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkTableViewCell.swift; sourceTree = "<group>"; };
 		C09D072628337018007D527B /* BookmarkTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookmarkTableViewCell.xib; sourceTree = "<group>"; };
+		C0A07678283CF5950020593D /* UIWindow + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow + Extension.swift"; sourceTree = "<group>"; };
 		C0A5A1D628150D4B0030A49B /* NewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionViewCell.swift; sourceTree = "<group>"; };
 		C0A5A1D728150D4B0030A49B /* NewsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCollectionViewCell.xib; sourceTree = "<group>"; };
 		C0B8ED4227EB8B4A00545C57 /* NanumSquareB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareB.otf; sourceTree = "<group>"; };
@@ -91,7 +92,6 @@
 		C0E74BC52834C6A800335FE7 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		C0E74BC72834C80A00335FE7 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		C0E74BC82834C80A00335FE7 /* SettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
-		C0E74BCB2834D8BB00335FE7 /* UIWindow + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow + Extension.swift"; sourceTree = "<group>"; };
 		C0F5677327EAE3850039E49A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,7 +186,7 @@
 				C00BAD8C27EA2C9500134BEA /* UILabel + Extension.swift */,
 				C09A6EFA281A48F700DCCEFD /* UISearchBar + Extension.swift */,
 				C065DE072830D366000AD2C3 /* UITextField + Extension.swift */,
-				C0E74BCB2834D8BB00335FE7 /* UIWindow + Extension.swift */,
+				C0A07678283CF5950020593D /* UIWindow + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -383,9 +383,9 @@
 				C09A6EF8281A294900DCCEFD /* ListTableViewCell.swift in Sources */,
 				C00BAD7A27E986C300134BEA /* Model.swift in Sources */,
 				C06DAE382806EBFC008E0559 /* NewsTableViewCell.swift in Sources */,
+				C0A07679283CF5950020593D /* UIWindow + Extension.swift in Sources */,
 				C09D072428336E88007D527B /* BookmarkViewController.swift in Sources */,
 				C0F5677427EAE3850039E49A /* MainViewController.swift in Sources */,
-				C0E74BCC2834D8BB00335FE7 /* UIWindow + Extension.swift in Sources */,
 				C0E74BC62834C6A800335FE7 /* SettingViewController.swift in Sources */,
 				C0A5A1D828150D4B0030A49B /* NewsCollectionViewCell.swift in Sources */,
 				C04DDB302838058C00A2F14E /* FindPwdViewController.swift in Sources */,
