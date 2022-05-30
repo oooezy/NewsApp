@@ -18,15 +18,25 @@ class BookmarkViewController: UIViewController {
     var viewModels = [NewsTableViewCellViewModel]()
     
     @IBOutlet weak var tableView: UITableView!
-//    @IBOutlet weak var defaultView: UIView!
+    @IBOutlet weak var defaultView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
+        bookmarkArr = UserDefaults.standard.array(forKey: "bookmarkList") as? [[String]] ?? [[]]
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
+        if bookmarkArr.isEmpty {
+            defaultView.tag = 10
+            self.view.addSubview(defaultView)
+
+        } else {
+            if let removable = view.viewWithTag(10) {
+                removable.removeFromSuperview()
+            }
+            tableView.reloadData()
+        }
     }
 
     func setUpTableView() {
@@ -51,6 +61,12 @@ extension BookmarkViewController: UITableViewDelegate, UITableViewDataSource {
         cell.authorLabel.text = bookmarkArr[indexPath.row][1]
         cell.dateLabel.text = bookmarkArr[indexPath.row][2]
         
+        let attrString = NSMutableAttributedString(string: cell.titleLabel.text!)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 5
+        attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrString.length))
+        cell.titleLabel.attributedText = attrString
+        
         if let url = URL(string: bookmarkArr[indexPath.row][3]) {
             if let data = try? Data(contentsOf: url) {
                 cell.thumbImageView.image = UIImage(data: data)
@@ -69,9 +85,9 @@ extension BookmarkViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let article = articles[indexPath.row]
+        let link = bookmarkArr[indexPath.row][4]
 
-        guard let url = URL(string: article.url ?? "") else { return }
+        guard let url = URL(string: link) else { return }
 
         let vc = SFSafariViewController(url: url)
         present(vc, animated: true)

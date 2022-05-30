@@ -30,7 +30,7 @@ class SearchViewController: UIViewController {
     var articles = [Article]()
     var viewModels = [NewsTableViewCellViewModel]()
     
-    let searchVC = UISearchController(searchResultsController: nil)
+    let searchController = UISearchController(searchResultsController: nil)
 
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -77,10 +77,11 @@ class SearchViewController: UIViewController {
                 self?.viewModels = articles.compactMap( {
                     NewsTableViewCellViewModel(
                         title: $0.title,
-                        description: $0.description ?? "",
+                        description: $0.description ?? "No Description",
                         imageURL: URL(string: $0.urlToImage ?? ""),
                         author: $0.author ?? "",
-                        publishedAt: $0.publishedAt
+                        publishedAt: $0.publishedAt,
+                        url: $0.url ?? ""
                     )
                 })
 
@@ -126,24 +127,24 @@ extension SearchViewController: UISearchBarDelegate {
         guard let text = searchBar.text, !text.isEmpty else {
             return
         }
-
+        
         Service.shared.search(with: text) { [weak self] result in
             switch result {
             case .success(let articles):
                 self?.articles = articles
-                self?.viewModels = articles.compactMap({
+                self?.viewModels = articles.compactMap( {
                     NewsTableViewCellViewModel(
                         title: $0.title,
-                        description: $0.description ?? "",
+                        description: $0.description ?? "No Description",
                         imageURL: URL(string: $0.urlToImage ?? ""),
                         author: $0.author ?? "",
-                        publishedAt: $0.publishedAt
+                        publishedAt: $0.publishedAt,
+                        url: $0.url ?? ""
                     )
                 })
 
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
-                    self?.searchVC.dismiss(animated: true, completion: nil)
                 }
 
             case .failure(let error):
@@ -180,7 +181,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 108
+        return 120
     }
 }
 
@@ -190,12 +191,23 @@ extension SearchViewController: ListTVCellDelegate {
         let title = cell.titleLabel.text!
         let author = cell.authorLabel.text ?? ""
         let date = cell.dateLabel.text ?? ""
-        let url = cell.imgURL ?? ""
+        let imgURL = cell.imgURL ?? ""
+        let url = cell.url
 
-        bookmarkArr.append(contentsOf: [[title, author, date, url]])
+        bookmarkArr.append(contentsOf: [[title, author, date, imgURL, url]])
+        UserDefaults.standard.set(bookmarkArr, forKey: "bookmarkList")
     }
     
     func removeBookmarkList(_ cell: ListTableViewCell, index: Int) {
-        bookmarkArr.remove(at: index)
+        let title = cell.titleLabel.text!
+        
+        for arr in bookmarkArr {
+            if arr[0] == title {
+                let idx = bookmarkArr.firstIndex(of: arr)
+                bookmarkArr.remove(at: idx!)
+                
+                UserDefaults.standard.set(bookmarkArr, forKey: "bookmarkList")
+            }
+        }
     }
 }

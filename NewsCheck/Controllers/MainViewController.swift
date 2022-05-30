@@ -99,7 +99,8 @@ class MainViewController: UIViewController {
                         description: $0.description ?? "",
                         imageURL: URL(string: $0.urlToImage ?? ""),
                         author: $0.author ?? "",
-                        publishedAt: $0.publishedAt
+                        publishedAt: $0.publishedAt,
+                        url: $0.url ?? ""
                     )
                 })
                 DispatchQueue.main.async {

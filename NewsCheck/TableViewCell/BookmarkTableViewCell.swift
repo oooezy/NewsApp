@@ -13,6 +13,7 @@ class BookmarkTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var removeButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,8 +23,16 @@ class BookmarkTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0))
-//    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        removeButton.setTitle("", for: .normal)
+        
+        thumbImageView.layer.masksToBounds = true
+        thumbImageView.layer.cornerRadius = 15
+        
+    }
+    
+    @IBAction func removeBookmark(_ sender: UIButton) {
+//        bookmarkCount -= 1
+    }
 }

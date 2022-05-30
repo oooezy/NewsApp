@@ -335,18 +335,47 @@
                                     <constraint firstItem="kXO-Ef-Wl7" firstAttribute="leading" secondItem="Vug-5W-qwf" secondAttribute="leading" constant="24" id="vX5-Nf-FIU"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jyh-GX-SU7">
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addBookmark_ic" translatesAutoresizingMaskIntoConstraints="NO" id="aqe-as-xEr">
+                                        <rect key="frame" x="185.5" y="258" width="43" height="51"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdv-GV-E4Z">
+                                        <rect key="frame" x="96.5" y="329" width="221.5" height="15.5"/>
+                                        <string key="text">나중에 보고 싶은 뉴스를 저장해주세요.
+
+</string>
+                                        <fontDescription key="fontDescription" name="NanumSquareOTFR" family="NanumSquareOTF" pointSize="14"/>
+                                        <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="tdv-GV-E4Z" firstAttribute="centerY" secondItem="jyh-GX-SU7" secondAttribute="centerY" id="05j-AZ-GjC"/>
+                                    <constraint firstItem="tdv-GV-E4Z" firstAttribute="top" secondItem="aqe-as-xEr" secondAttribute="bottom" constant="20" id="FZQ-Xi-eD8"/>
+                                    <constraint firstItem="aqe-as-xEr" firstAttribute="centerX" secondItem="jyh-GX-SU7" secondAttribute="centerX" id="tYs-Vf-zi3"/>
+                                    <constraint firstItem="tdv-GV-E4Z" firstAttribute="centerX" secondItem="jyh-GX-SU7" secondAttribute="centerX" id="zqh-FC-uCt"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dtX-XO-cS2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="jyh-GX-SU7" firstAttribute="top" secondItem="dtX-XO-cS2" secondAttribute="top" id="3tA-jY-vgf"/>
+                            <constraint firstItem="dtX-XO-cS2" firstAttribute="trailing" secondItem="jyh-GX-SU7" secondAttribute="trailing" id="JLD-UL-4zd"/>
                             <constraint firstItem="Vug-5W-qwf" firstAttribute="top" secondItem="dtX-XO-cS2" secondAttribute="top" id="Ohg-Rj-st4"/>
                             <constraint firstItem="Vug-5W-qwf" firstAttribute="leading" secondItem="dtX-XO-cS2" secondAttribute="leading" id="ST6-xw-Eqq"/>
+                            <constraint firstItem="jyh-GX-SU7" firstAttribute="leading" secondItem="dtX-XO-cS2" secondAttribute="leading" id="SiM-66-3lF"/>
+                            <constraint firstItem="dtX-XO-cS2" firstAttribute="bottom" secondItem="jyh-GX-SU7" secondAttribute="bottom" id="aIf-ib-aWB"/>
                             <constraint firstItem="dtX-XO-cS2" firstAttribute="bottom" secondItem="Vug-5W-qwf" secondAttribute="bottom" id="fID-2V-vjx"/>
                             <constraint firstItem="dtX-XO-cS2" firstAttribute="trailing" secondItem="Vug-5W-qwf" secondAttribute="trailing" id="wQx-nn-4Ej"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="북마크" largeTitleDisplayMode="always" id="wdW-AS-FVc"/>
                     <connections>
+                        <outlet property="defaultView" destination="jyh-GX-SU7" id="hYi-o2-ZXz"/>
                         <outlet property="tableView" destination="kXO-Ef-Wl7" id="oy8-ul-WLa"/>
                     </connections>
                 </viewController>
@@ -371,20 +400,22 @@
                                             <constraint firstAttribute="height" constant="40" id="Y8e-eg-Ynd"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="이메일을 입력해주세요." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nbR-Nf-3qn" userLabel="Email Text Field">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이메일을 입력해주세요." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nbR-Nf-3qn" userLabel="Email Text Field">
                                         <rect key="frame" x="24" y="200.5" width="366" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="Lun-QJ-1gA"/>
                                         </constraints>
-                                        <attributedString key="attributedText"/>
+                                        <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareOTFR" family="NanumSquareOTF" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="비밀번호를 입력해주세요." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mac-gl-EY5" userLabel="Password Text Field">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호를 입력해주세요." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mac-gl-EY5" userLabel="Password Text Field">
                                         <rect key="frame" x="24" y="278.5" width="366" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="OHj-UK-Aza"/>
                                         </constraints>
-                                        <attributedString key="attributedText"/>
+                                        <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareOTFR" family="NanumSquareOTF" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ox4-cV-aud">
@@ -841,6 +872,7 @@
         <image name="Home_s_ic" width="22" height="19"/>
         <image name="Search_ic" width="22" height="21"/>
         <image name="Search_s_ic" width="22" height="21"/>
+        <image name="addBookmark_ic" width="43" height="51"/>
         <image name="bookmark_ic" width="16" height="20"/>
         <image name="checkbox_off" width="20" height="20"/>
         <image name="checkbox_on" width="20" height="20"/>

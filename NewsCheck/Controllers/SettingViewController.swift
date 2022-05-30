@@ -7,6 +7,10 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import KakaoSDKAuth
+import KakaoSDKCommon
+import KakaoSDKUser
 
 class SettingViewController: UIViewController {
     
@@ -36,6 +40,13 @@ class SettingViewController: UIViewController {
         
         let nibName = UINib(nibName: "SettingTableViewCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: "SettingTableViewCell")
+    }
+    
+    func goToLoginView() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "LoginView")
+        UIApplication.shared.keyWindow?.rootViewController = vc
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }
 
@@ -108,17 +119,12 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
                 preferredStyle: UIAlertController.Style.alert)
 
             let no = UIAlertAction(title: "취소", style: .default, handler: nil)
-            
             let yes = UIAlertAction(title: "확인", style: .destructive, handler: { action in
                 let firebaseAuth = Auth.auth()
-                
                 do {
                     try firebaseAuth.signOut()
+                    self.goToLoginView()
                     print("로그아웃 완료!")
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let vc = storyboard.instantiateViewController(withIdentifier: "LoginView")
-                    UIApplication.shared.keyWindow?.rootViewController = vc
-                    self.navigationController?.popToRootViewController(animated: true)
                 }
                 catch let signOutError as NSError {
                     print("ERROR: signout \(signOutError.localizedDescription)")
@@ -130,13 +136,12 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             
             present(alert,animated: true,completion: nil)
         }
-        else if indexPath[0] == 0 && indexPath[1] == 1 { // 계정삭제
+        else if indexPath[0] == 0 && indexPath[1] == 1 {
             let alert = UIAlertController(title:"계정을 삭제하시겠습니까?",
                 message: "",
                 preferredStyle: UIAlertController.Style.alert)
 
             let no = UIAlertAction(title: "취소", style: .default, handler: nil)
-            
             let yes = UIAlertAction(title: "확인", style: .destructive, handler: { action in
                 let user = Auth.auth().currentUser
 
@@ -144,12 +149,18 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
                   if let error = error {
                       print("ERROR: \(error)")
                   } else {
-                      print("회원탈퇴 완료!")
-                      let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                      let vc = storyboard.instantiateViewController(withIdentifier: "LoginView")
-                      UIApplication.shared.keyWindow?.rootViewController = vc
-                      self.navigationController?.popToRootViewController(animated: true)
+                      self.goToLoginView()
                   }
+                }
+                    
+                UserApi.shared.unlink { error in
+                    if let error = error {
+                        print("ERROR: \(error)")
+                    }
+                    else {
+                        user?.delete()
+                        self.goToLoginView()
+                    }
                 }
             })
             

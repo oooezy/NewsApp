@@ -11,6 +11,9 @@
         <array key="NanumSquareB.otf">
             <string>NanumSquareOTFB</string>
         </array>
+        <array key="NanumSquareR.otf">
+            <string>NanumSquareOTFR</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -29,60 +32,81 @@
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kCs-xa-vM1">
-                        <rect key="frame" x="180" y="0.0" width="245" height="164"/>
+                        <rect key="frame" x="180" y="2" width="245" height="160"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyx-Bk-VEx">
-                                <rect key="frame" x="0.0" y="0.0" width="245" height="36"/>
-                                <string key="text">[속보] 신규 확진 49만881명, 
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="TQc-Oo-TsP">
+                                <rect key="frame" x="0.0" y="0.0" width="245" height="160"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyx-Bk-VEx">
+                                        <rect key="frame" x="0.0" y="0.0" width="245" height="27"/>
+                                        <string key="text">[속보] 신규 확진 49만881명, 
 역대 두번째…사망 291명
 </string>
-                                <fontDescription key="fontDescription" name="NanumSquareOTFB" family="NanumSquareOTF" pointSize="14"/>
-                                <color key="textColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="6GW-fB-GkD">
-                                <rect key="frame" x="0.0" y="140" width="245" height="24"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="한겨레" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4Z-5R-Xv1">
-                                        <rect key="frame" x="0.0" y="0.0" width="157" height="24"/>
                                         <fontDescription key="fontDescription" name="NanumSquareOTFB" family="NanumSquareOTF" pointSize="12"/>
-                                        <color key="textColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1B-6h-QdU">
-                                        <rect key="frame" x="172" y="0.0" width="34" height="24"/>
-                                        <fontDescription key="fontDescription" name="NanumSquareOTFB" family="NanumSquareOTF" pointSize="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qyq-Ww-2KW">
+                                        <rect key="frame" x="0.0" y="75.5" width="245" height="12.5"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareOTFB" family="NanumSquareOTF" pointSize="11"/>
                                         <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QAt-bE-oCA">
-                                        <rect key="frame" x="221" y="0.0" width="24" height="24"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="6GW-fB-GkD">
+                                        <rect key="frame" x="0.0" y="136" width="245" height="24"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="한겨레" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4Z-5R-Xv1">
+                                                <rect key="frame" x="0.0" y="0.0" width="141" height="24"/>
+                                                <fontDescription key="fontDescription" name="NanumSquareOTFR" family="NanumSquareOTF" pointSize="10"/>
+                                                <color key="textColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1B-6h-QdU">
+                                                <rect key="frame" x="156" y="0.0" width="50" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="Qjs-pN-MhR"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="NanumSquareOTFR" family="NanumSquareOTF" pointSize="10"/>
+                                                <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QAt-bE-oCA">
+                                                <rect key="frame" x="221" y="0.0" width="24" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="MDu-ly-TBS"/>
+                                                    <constraint firstAttribute="width" constant="24" id="sKK-nv-PXO"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="bookmark_Off"/>
+                                                <state key="selected" image="bookmark_On"/>
+                                                <connections>
+                                                    <action selector="didTapBookmark:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="WM8-kR-Nf8"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="24" id="MDu-ly-TBS"/>
-                                            <constraint firstAttribute="width" constant="24" id="sKK-nv-PXO"/>
+                                            <constraint firstItem="QAt-bE-oCA" firstAttribute="leading" secondItem="m1B-6h-QdU" secondAttribute="trailing" constant="15" id="Fo9-a3-nZy"/>
                                         </constraints>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" image="bookmark_Off"/>
-                                        <state key="selected" image="bookmark_On"/>
-                                        <connections>
-                                            <action selector="didTapBookmark:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="WM8-kR-Nf8"/>
-                                        </connections>
-                                    </button>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="QAt-bE-oCA" firstAttribute="leading" secondItem="m1B-6h-QdU" secondAttribute="trailing" constant="15" id="Fo9-a3-nZy"/>
+                                    <constraint firstItem="6GW-fB-GkD" firstAttribute="leading" secondItem="TQc-Oo-TsP" secondAttribute="leading" id="1Jz-tH-fHK"/>
+                                    <constraint firstItem="Qyq-Ww-2KW" firstAttribute="leading" secondItem="TQc-Oo-TsP" secondAttribute="leading" id="60r-oj-C0W"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qyq-Ww-2KW" secondAttribute="trailing" id="AwN-wi-3Ct"/>
+                                    <constraint firstAttribute="trailing" secondItem="6GW-fB-GkD" secondAttribute="trailing" id="YhQ-M4-dmK"/>
+                                    <constraint firstItem="yyx-Bk-VEx" firstAttribute="leading" secondItem="TQc-Oo-TsP" secondAttribute="leading" id="ZBs-yI-C9g"/>
+                                    <constraint firstAttribute="trailing" secondItem="yyx-Bk-VEx" secondAttribute="trailing" id="fQi-CX-tmw"/>
+                                    <constraint firstAttribute="bottom" secondItem="6GW-fB-GkD" secondAttribute="bottom" id="rEp-Dm-rFn"/>
+                                    <constraint firstItem="yyx-Bk-VEx" firstAttribute="top" secondItem="TQc-Oo-TsP" secondAttribute="top" id="z7E-Js-skp"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="yyx-Bk-VEx" firstAttribute="top" secondItem="kCs-xa-vM1" secondAttribute="top" id="5Wu-Rd-IXS"/>
-                            <constraint firstItem="6GW-fB-GkD" firstAttribute="height" secondItem="yyx-Bk-VEx" secondAttribute="height" multiplier="2:3" id="Bv9-dm-IrL"/>
-                            <constraint firstAttribute="trailing" secondItem="yyx-Bk-VEx" secondAttribute="trailing" id="MIG-31-FXW"/>
-                            <constraint firstAttribute="bottom" secondItem="6GW-fB-GkD" secondAttribute="bottom" id="UCe-5k-cwj"/>
-                            <constraint firstItem="6GW-fB-GkD" firstAttribute="leading" secondItem="kCs-xa-vM1" secondAttribute="leading" id="d5j-fS-xcR"/>
-                            <constraint firstItem="yyx-Bk-VEx" firstAttribute="leading" secondItem="kCs-xa-vM1" secondAttribute="leading" id="eOV-Ja-fdY"/>
-                            <constraint firstAttribute="trailing" secondItem="6GW-fB-GkD" secondAttribute="trailing" id="p63-ql-YAg"/>
+                            <constraint firstAttribute="bottom" secondItem="TQc-Oo-TsP" secondAttribute="bottom" id="D7y-9g-pR0"/>
+                            <constraint firstAttribute="trailing" secondItem="TQc-Oo-TsP" secondAttribute="trailing" id="MvW-WI-nUo"/>
+                            <constraint firstItem="TQc-Oo-TsP" firstAttribute="top" secondItem="kCs-xa-vM1" secondAttribute="top" id="QmI-aH-hm8"/>
+                            <constraint firstItem="TQc-Oo-TsP" firstAttribute="leading" secondItem="kCs-xa-vM1" secondAttribute="leading" id="rjh-8a-77S"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -90,9 +114,9 @@
                     <constraint firstAttribute="bottom" secondItem="XmM-ZU-q7A" secondAttribute="bottom" id="Jua-FY-74n"/>
                     <constraint firstItem="XmM-ZU-q7A" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="S06-fi-Ubl"/>
                     <constraint firstItem="XmM-ZU-q7A" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="U7J-ss-R1w"/>
-                    <constraint firstAttribute="bottom" secondItem="kCs-xa-vM1" secondAttribute="bottom" id="bRA-zV-ziV"/>
+                    <constraint firstAttribute="bottom" secondItem="kCs-xa-vM1" secondAttribute="bottom" constant="2" id="bRA-zV-ziV"/>
                     <constraint firstItem="kCs-xa-vM1" firstAttribute="leading" secondItem="XmM-ZU-q7A" secondAttribute="trailing" constant="16" id="di8-eM-KBu"/>
-                    <constraint firstItem="kCs-xa-vM1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="sYx-iQ-IgB"/>
+                    <constraint firstItem="kCs-xa-vM1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="sYx-iQ-IgB"/>
                     <constraint firstAttribute="trailing" secondItem="kCs-xa-vM1" secondAttribute="trailing" id="tAh-g3-F3e"/>
                 </constraints>
             </tableViewCellContentView>
@@ -102,6 +126,7 @@
                 <outlet property="authorLabel" destination="i4Z-5R-Xv1" id="ulc-1Z-lrk"/>
                 <outlet property="bookmarkButton" destination="QAt-bE-oCA" id="ODs-A3-Tt2"/>
                 <outlet property="dateLabel" destination="m1B-6h-QdU" id="EXY-S4-89t"/>
+                <outlet property="descriptionLabel" destination="Qyq-Ww-2KW" id="WFk-1P-q5O"/>
                 <outlet property="thumbImageView" destination="XmM-ZU-q7A" id="Ev5-Hp-cVP"/>
                 <outlet property="titleLabel" destination="yyx-Bk-VEx" id="5Nh-87-xyj"/>
             </connections>

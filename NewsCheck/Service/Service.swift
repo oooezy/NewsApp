@@ -20,7 +20,9 @@ final class Service {
     
     public func getTopStories(completion: @escaping (Result <[Article], Error>) -> Void) {
         let urlString = Constants.topHeadlinesURL
-        guard let url = URL(string: urlString) else { return }
+        let encodedString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        
+        let url = URL(string: encodedString)!
         
         let task = URLSession.shared.dataTask(with: url) { data, _, error in
             
@@ -46,8 +48,10 @@ final class Service {
             return
         }
         let urlString = Constants.categoryURL + category
-        guard let url = URL(string: urlString) else { return }
-
+        let encodedString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        
+        let url = URL(string: encodedString)!
+        
         let task = URLSession.shared.dataTask(with: url) { data, _, error in
             if let error = error {
                 completion(.failure(error))

@@ -19,13 +19,15 @@ class NewsTableViewCellViewModel {
     var imageData: Data? = nil
     let author: String
     let publishedAt: String
-
-    init(title: String, description: String, imageURL: URL?, author: String, publishedAt: String) {
+    let url: String
+    
+    init(title: String, description: String, imageURL: URL?, author: String, publishedAt: String, url: String) {
         self.title = title
         self.description = description
         self.imageURL = imageURL
         self.author = author
         self.publishedAt = publishedAt
+        self.url = url
     }
 }
 

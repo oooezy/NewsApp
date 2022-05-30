@@ -43,17 +43,17 @@ class LoginViewController: UIViewController {
         passwordTextField.addTarget(self, action: #selector(didEndOnExit), for: UIControl.Event.editingDidEndOnExit)
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(true)
-//        
-//        if let autoLogin = UserDefaults.standard.string(forKey: "autoLogin") {
-//            if autoLogin == "true" && Auth.auth().currentUser != nil {
-//                self.performSegue(withIdentifier: "showMain", sender: self)
-//            } else {
-//                return
-//            }
-//        }
-//    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        if let autoLogin = UserDefaults.standard.string(forKey: "autoLogin") {
+            if autoLogin == "true" && Auth.auth().currentUser != nil {
+                self.performSegue(withIdentifier: "showMain", sender: self)
+            } else {
+                return
+            }
+        }
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
          self.view.endEditing(true)
@@ -74,6 +74,36 @@ class LoginViewController: UIViewController {
         passwordTextField.layer.masksToBounds = true
         
         loginButton.layer.cornerRadius = 10
+    }
+    
+    func kakoLoginWithWeb() {
+        UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
+            if let error = error {
+                print(error)
+            } else {
+                _ = oauthToken
+                
+                UserApi.shared.me {(user, error) in
+                    if let error = error {
+                        print(error)
+                    } else {
+                        let email = user?.kakaoAccount?.email
+                        let password = String(describing: user?.id)
+                        
+                        Auth.auth().createUser(withEmail: email!, password: password) { user, error in
+                            if let error = error {
+                                print("FB : signup failed")
+                                print(error)
+                                Auth.auth().signIn(withEmail: email!, password: password, completion: nil)
+                            } else {
+                                print("FB : signup success")
+                            }
+                        }
+                    }
+                }
+                self.performSegue(withIdentifier: "showMain", sender: self)
+            }
+        }
     }
     
     // MARK: - IBAction
@@ -174,19 +204,22 @@ class LoginViewController: UIViewController {
 
     // Kakao
     @IBAction func kakaoLoginButtonTapped(_ sender: UIButton) {
-        if (UserApi.isKakaoTalkLoginAvailable()) {
-            UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
+        if AuthApi.hasToken() {
+            UserApi.shared.accessTokenInfo { _, error in
                 if let error = error {
                     print(error)
-                }
-                else {
+                    if UserApi.isKakaoTalkLoginAvailable() {
+                        self.kakoLoginWithWeb()
+                    }
+                } else {
                     self.performSegue(withIdentifier: "showMain", sender: self)
-                    _ = oauthToken
                 }
             }
+        } else if UserApi.isKakaoTalkLoginAvailable() {
+            self.kakoLoginWithWeb()
         }
     }
-    
+
     // MARK: - objc
     @objc func didEndOnExit(_ sender: UITextField) {
         if emailTextField.isFirstResponder {

@@ -16,6 +16,7 @@ class ListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var thumbImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var bookmarkButton: UIButton!
@@ -26,6 +27,7 @@ class ListTableViewCell: UITableViewCell {
     var isChecked = false
     var bookmarkCount: Int = 0
     var imgURL: String? = ""
+    var url: String = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,13 +49,19 @@ class ListTableViewCell: UITableViewCell {
         let text = viewModel.title
         titleLabel.text = text.split(separator: "-").dropLast(1).joined()
         authorLabel.text = viewModel.author
+        descriptionLabel.text = viewModel.description
         
         let attrString = NSMutableAttributedString(string: titleLabel.text!)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 5
         attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrString.length))
         titleLabel.attributedText = attrString
-
+        
+        let descriptionString = NSMutableAttributedString(string: descriptionLabel.text!)
+        descriptionString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, descriptionString.length))
+        descriptionLabel.attributedText = descriptionString
+        
+        // date formatter
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions = [.withFullDate]
         let date = formatter.date(from: viewModel.publishedAt)!
@@ -61,6 +69,9 @@ class ListTableViewCell: UITableViewCell {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YY-MM-dd"
         dateLabel.text = dateFormatter.string(from: date)
+        
+        // url
+        url = viewModel.url
         
         // Image
         if let data = viewModel.imageData {
