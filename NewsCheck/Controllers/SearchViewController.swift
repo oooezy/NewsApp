@@ -185,7 +185,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-
 extension SearchViewController: ListTVCellDelegate {
     func addBookmarkList(_ cell: ListTableViewCell, index: Int) {
         let title = cell.titleLabel.text!
@@ -193,8 +192,9 @@ extension SearchViewController: ListTVCellDelegate {
         let date = cell.dateLabel.text ?? ""
         let imgURL = cell.imgURL ?? ""
         let url = cell.url
+        let description = cell.descriptionLabel.text ?? "No description"
 
-        bookmarkArr.append(contentsOf: [[title, author, date, imgURL, url]])
+        bookmarkArr.append(contentsOf: [[title, author, date, imgURL, url, description]])
         UserDefaults.standard.set(bookmarkArr, forKey: "bookmarkList")
     }
     

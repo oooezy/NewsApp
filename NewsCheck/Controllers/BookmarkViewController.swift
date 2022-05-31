@@ -17,8 +17,9 @@ class BookmarkViewController: UIViewController {
     var articles = [Article]()
     var viewModels = [NewsTableViewCellViewModel]()
     
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var defaultView: UIView!
+    
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var defaultView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,13 +29,10 @@ class BookmarkViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         if bookmarkArr.isEmpty {
-            defaultView.tag = 10
-            self.view.addSubview(defaultView)
-
+            self.view.bringSubviewToFront(defaultView)
         } else {
-            if let removable = view.viewWithTag(10) {
-                removable.removeFromSuperview()
-            }
+            self.view.bringSubviewToFront(tableView)
+            self.view.sendSubviewToBack(defaultView)
             tableView.reloadData()
         }
     }
@@ -60,12 +58,17 @@ extension BookmarkViewController: UITableViewDelegate, UITableViewDataSource {
         cell.titleLabel.text = bookmarkArr[indexPath.row][0]
         cell.authorLabel.text = bookmarkArr[indexPath.row][1]
         cell.dateLabel.text = bookmarkArr[indexPath.row][2]
+        cell.descriptionLabel.text = bookmarkArr[indexPath.row][5]
         
         let attrString = NSMutableAttributedString(string: cell.titleLabel.text!)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 5
         attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrString.length))
         cell.titleLabel.attributedText = attrString
+        
+        let descriptionString = NSMutableAttributedString(string: cell.descriptionLabel.text!)
+        descriptionString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, descriptionString.length))
+        cell.descriptionLabel.attributedText = descriptionString
         
         if let url = URL(string: bookmarkArr[indexPath.row][3]) {
             if let data = try? Data(contentsOf: url) {
@@ -75,6 +78,8 @@ extension BookmarkViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
 
+        cell.delegate = self
+        
         return cell
     }
     
@@ -91,5 +96,33 @@ extension BookmarkViewController: UITableViewDelegate, UITableViewDataSource {
 
         let vc = SFSafariViewController(url: url)
         present(vc, animated: true)
+    }
+}
+
+
+extension BookmarkViewController: bookmarkVCDelegate {
+    func removeBookmark(_ cell: BookmarkTableViewCell) {
+        
+        let title = cell.titleLabel.text!
+        print(title)
+        
+        for arr in bookmarkArr {
+            if arr[0] == title {
+                let idx = bookmarkArr.firstIndex(of: arr)
+                bookmarkArr.remove(at: idx!)
+                tableView.reloadData()
+            }
+        }
+        
+        print(bookmarkArr)
+        
+        if bookmarkArr.isEmpty {
+            self.view.bringSubviewToFront(defaultView)
+        } else {
+            self.view.bringSubviewToFront(tableView)
+            self.view.sendSubviewToBack(defaultView)
+            tableView.reloadData()
+        }
+        UserDefaults.standard.set(bookmarkArr, forKey: "bookmarkList")
     }
 }

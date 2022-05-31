@@ -12,6 +12,8 @@ protocol ListTVCellDelegate: AnyObject {
     func removeBookmarkList(_ cell: ListTableViewCell, index: Int)
 }
 
+var bookmarkCount: Int = 0
+
 class ListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var thumbImageView: UIImageView!
@@ -25,7 +27,6 @@ class ListTableViewCell: UITableViewCell {
     weak var delegate: ListTVCellDelegate?
     
     var isChecked = false
-    var bookmarkCount: Int = 0
     var imgURL: String? = ""
     var url: String = ""
     
