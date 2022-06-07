@@ -1,4 +1,4 @@
-# 📰 NewsApp
+# 🗞 NewsApp
 
 ![Badge](https://img.shields.io/badge/language-swift5.6-blue) 
 ![Badge](https://img.shields.io/badge/platform-iOS14+-yellow) 
