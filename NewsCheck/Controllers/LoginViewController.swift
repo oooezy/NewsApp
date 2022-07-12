@@ -6,14 +6,16 @@
 //
 
 import UIKit
+
+import AuthenticationServices
+import CryptoKit
 import Firebase
 import FirebaseAuth
 import GoogleSignIn
-import AuthenticationServices
 import KakaoSDKAuth
 import KakaoSDKCommon
 import KakaoSDKUser
-import CryptoKit
+import Then
 
 class LoginViewController: UIViewController {
     
@@ -117,17 +119,13 @@ class LoginViewController: UIViewController {
             }
         } else {
             emailTextField.shakeTextField()
-        let emailLabel: UILabel = {
-            let label = UILabel()
-            
-            label.translatesAutoresizingMaskIntoConstraints = false
-            label.text = "이메일 형식을 확인해 주세요."
-            label.font = UIFont.NanumSquare(type: .Regular, size: 12)
-            label.textColor = UIColor.red
-            label.tag = 100
-            
-            return label
-        }()
+            let emailLabel = UILabel().then {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.text = "이메일 형식을 확인해 주세요."
+            $0.font = UIFont.NanumSquare(type: .Regular, size: 12)
+            $0.textColor = UIColor.red
+            $0.tag = 100
+        }
         
         self.textFieldContainerView.addSubview(emailLabel)
         NSLayoutConstraint.activate([
@@ -142,17 +140,13 @@ class LoginViewController: UIViewController {
             }
         } else {
             passwordTextField.shakeTextField()
-            let passwordLabel: UILabel = {
-                let label = UILabel()
-                
-                label.translatesAutoresizingMaskIntoConstraints = false
-                label.text = "비밀번호 형식을 확인해 주세요."
-                label.font = UIFont.NanumSquare(type: .Regular, size: 12)
-                label.textColor = UIColor.red
-                label.tag = 101
-                
-                return label
-            }()
+            let passwordLabel = UILabel().then {
+                $0.translatesAutoresizingMaskIntoConstraints = false
+                $0.text = "비밀번호 형식을 확인해 주세요."
+                $0.font = UIFont.NanumSquare(type: .Regular, size: 12)
+                $0.textColor = UIColor.red
+                $0.tag = 101
+            }
             self.textFieldContainerView.addSubview(passwordLabel)
             NSLayoutConstraint.activate([
                 passwordLabel.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 10),

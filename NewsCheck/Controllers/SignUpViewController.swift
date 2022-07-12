@@ -12,7 +12,7 @@ import FirebaseDatabase
 import FirebaseStorage
 
 class SignUpViewController: UIViewController {
-    var userModel = UserModel() // 인스턴스 생성
+    var userModel = UserModel()
         
     // MARK: - IBOutlet
     @IBOutlet weak var emailTextField: UITextField!
@@ -116,17 +116,13 @@ class SignUpViewController: UIViewController {
             }
         } else {
             emailTextField.shakeTextField()
-            let emailLabel: UILabel = {
-                let label = UILabel()
-                
-                label.translatesAutoresizingMaskIntoConstraints = false
-                label.text = "이메일 형식을 확인해 주세요."
-                label.font = UIFont.NanumSquare(type: .Regular, size: 12)
-                label.textColor = UIColor.red
-                label.tag = 100
-                
-                return label
-            }()
+            let emailLabel = UILabel().then {
+                $0.translatesAutoresizingMaskIntoConstraints = false
+                $0.text = "이메일 형식을 확인해 주세요."
+                $0.font = UIFont.NanumSquare(type: .Regular, size: 12)
+                $0.textColor = UIColor.red
+                $0.tag = 100
+            }
             
             self.view.addSubview(emailLabel)
             NSLayoutConstraint.activate([
@@ -141,17 +137,13 @@ class SignUpViewController: UIViewController {
             }
         } else {
             passwordTextField.shakeTextField()
-            let passwordLabel: UILabel = {
-                let label = UILabel()
-                
-                label.translatesAutoresizingMaskIntoConstraints = false
-                label.text = "비밀번호 형식을 확인해 주세요. (대소문자, 숫자가 포함 8자리 이상)"
-                label.font = UIFont.NanumSquare(type: .Regular, size: 12)
-                label.textColor = UIColor.red
-                label.tag = 101
-                
-                return label
-            }()
+            let passwordLabel = UILabel().then {
+                $0.translatesAutoresizingMaskIntoConstraints = false
+                $0.text = "비밀번호 형식을 확인해 주세요. (대소문자, 숫자가 포함 8자리 이상)"
+                $0.font = UIFont.NanumSquare(type: .Regular, size: 12)
+                $0.textColor = UIColor.red
+                $0.tag = 101
+            }
             
             self.view.addSubview(passwordLabel)
             NSLayoutConstraint.activate([
@@ -166,17 +158,13 @@ class SignUpViewController: UIViewController {
             }
         } else {
             passwordConfirmTextField.shakeTextField()
-            let passwordLabel: UILabel = {
-                let label = UILabel()
-                
-                label.translatesAutoresizingMaskIntoConstraints = false
-                label.text = "비밀번호가 다릅니다."
-                label.font = UIFont.NanumSquare(type: .Regular, size: 12)
-                label.textColor = UIColor.red
-                label.tag = 102
-                
-                return label
-            }()
+            let passwordLabel = UILabel().then {
+                $0.translatesAutoresizingMaskIntoConstraints = false
+                $0.text = "비밀번호가 다릅니다."
+                $0.font = UIFont.NanumSquare(type: .Regular, size: 12)
+                $0.textColor = UIColor.red
+                $0.tag = 102
+            }
             
             self.view.addSubview(passwordLabel)
             NSLayoutConstraint.activate([
@@ -192,17 +180,13 @@ class SignUpViewController: UIViewController {
                         switch ErrorCode {
                         case AuthErrorCode.invalidEmail:
                             self.emailTextField.shakeTextField()
-                            let joinFailLabel: UILabel = {
-                                let label = UILabel()
-                                
-                                label.translatesAutoresizingMaskIntoConstraints = false
-                                label.text = "유효하지 않은 이메일 입니다."
-                                label.font = UIFont.NanumSquare(type: .Regular, size: 12)
-                                label.textColor = UIColor.red
-                                label.tag = 103
-                                
-                                return label
-                            }()
+                            let joinFailLabel = UILabel().then {
+                                $0.translatesAutoresizingMaskIntoConstraints = false
+                                $0.text = "유효하지 않은 이메일 입니다."
+                                $0.font = UIFont.NanumSquare(type: .Regular, size: 12)
+                                $0.textColor = UIColor.red
+                                $0.tag = 103
+                            }
 
                             self.view.addSubview(joinFailLabel)
                             NSLayoutConstraint.activate([
@@ -211,17 +195,13 @@ class SignUpViewController: UIViewController {
                             ])
                         case AuthErrorCode.emailAlreadyInUse:
                             self.emailTextField.shakeTextField()
-                            let joinFailLabel: UILabel = {
-                                let label = UILabel()
-                                
-                                label.translatesAutoresizingMaskIntoConstraints = false
-                                label.text = "이미 가입되어있는 이메일입니다."
-                                label.font = UIFont.NanumSquare(type: .Regular, size: 12)
-                                label.textColor = UIColor.red
-                                label.tag = 103
-                                
-                                return label
-                            }()
+                            let joinFailLabel = UILabel().then {
+                                $0.translatesAutoresizingMaskIntoConstraints = false
+                                $0.text = "이미 가입되어있는 이메일입니다."
+                                $0.font = UIFont.NanumSquare(type: .Regular, size: 12)
+                                $0.textColor = UIColor.red
+                                $0.tag = 103
+                            }
 
                             self.view.addSubview(joinFailLabel)
                             NSLayoutConstraint.activate([

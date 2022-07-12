@@ -79,17 +79,13 @@ class FindPwdViewController: UIViewController {
         Auth.auth().sendPasswordReset(withEmail: email) { (error) in
             if error != nil {
                 self.emailTextField.shakeTextField()
-                let emailLabel: UILabel = {
-                    let label = UILabel()
-                    
-                    label.translatesAutoresizingMaskIntoConstraints = false
-                    label.text = "이메일을 다시 확인해주세요."
-                    label.font = UIFont.NanumSquare(type: .Regular, size: 12)
-                    label.textColor = UIColor.red
-                    label.tag = 100
-                    
-                    return label
-                }()
+                let emailLabel = UILabel().then {
+                    $0.translatesAutoresizingMaskIntoConstraints = false
+                    $0.text = "이메일을 다시 확인해주세요."
+                    $0.font = UIFont.NanumSquare(type: .Regular, size: 12)
+                    $0.textColor = UIColor.red
+                    $0.tag = 100
+                }
                 
                 self.view.addSubview(emailLabel)
                 NSLayoutConstraint.activate([

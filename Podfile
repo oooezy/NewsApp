@@ -14,5 +14,6 @@ pod 'GoogleSignIn', '~> 6.0.2'
 pod 'KakaoSDKCommon'
 pod 'KakaoSDKAuth'
 pod 'KakaoSDKUser'
+pod 'Then'
 
 end

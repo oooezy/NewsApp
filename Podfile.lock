@@ -80,6 +80,7 @@ PODS:
   - nanopb/decode (1.30906.0)
   - nanopb/encode (1.30906.0)
   - PromisesObjC (1.2.12)
+  - Then (3.0.0)
 
 DEPENDENCIES:
   - Firebase/Auth
@@ -89,6 +90,7 @@ DEPENDENCIES:
   - KakaoSDKAuth
   - KakaoSDKCommon
   - KakaoSDKUser
+  - Then
 
 SPEC REPOS:
   trunk:
@@ -111,6 +113,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - PromisesObjC
+    - Then
 
 SPEC CHECKSUMS:
   Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
@@ -132,7 +135,8 @@ SPEC CHECKSUMS:
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
+  Then: 844265ae87834bbe1147d91d5d41a404da2ec27d
 
-PODFILE CHECKSUM: 92acf56451be0b5c7f7f7f4353dc8f97dc399750
+PODFILE CHECKSUM: c7ec605142efc8097d481a4b976b660201696cb7
 
 COCOAPODS: 1.11.3
