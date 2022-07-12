@@ -12,11 +12,11 @@ final class UserModel {
         var email: String
         var password: String
     }
-        
-    var users: [User] = [
-        User(email: "abc1234@naver.com", password: "test1234"),
-        User(email: "abc1234@gmail.com", password: "test1234")
-    ]
+//        
+//    var users: [User] = [
+//        User(email: "abc1234@naver.com", password: "test1234"),
+//        User(email: "abc1234@gmail.com", password: "test1234")
+//    ]
         
     // 아이디 형식 검사
     func isValidEmail(id: String) -> Bool {

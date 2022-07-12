@@ -20,6 +20,7 @@
 		C00BAD8627EA219F00134BEA /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00BAD8527EA219F00134BEA /* UIFont + Extension.swift */; };
 		C00BAD8A27EA21B900134BEA /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00BAD8927EA21B900134BEA /* UIColor + Extension.swift */; };
 		C00BAD8D27EA2C9600134BEA /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00BAD8C27EA2C9500134BEA /* UILabel + Extension.swift */; };
+		C031D70B287D4E45005AC35E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C031D70A287D4E45005AC35E /* LoginViewModel.swift */; };
 		C04DDB302838058C00A2F14E /* FindPwdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DDB2F2838058C00A2F14E /* FindPwdViewController.swift */; };
 		C0524236283107100034B66B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0524235283107100034B66B /* GoogleService-Info.plist */; };
 		C065DE022830A00B000AD2C3 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C065DE012830A00B000AD2C3 /* UserModel.swift */; };
@@ -67,6 +68,7 @@
 		C00BAD8527EA219F00134BEA /* UIFont + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extension.swift"; sourceTree = "<group>"; };
 		C00BAD8927EA21B900134BEA /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		C00BAD8C27EA2C9500134BEA /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
+		C031D70A287D4E45005AC35E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		C04DDB2F2838058C00A2F14E /* FindPwdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPwdViewController.swift; sourceTree = "<group>"; };
 		C0524235283107100034B66B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C065DE012830A00B000AD2C3 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -139,11 +141,10 @@
 			children = (
 				C0B8ED4127EB8AF300545C57 /* Fonts */,
 				C00BAD8427EA218900134BEA /* Extensions */,
-				C00BAD7D27E9F67800134BEA /* Controllers */,
+				C031D70C287D4F4F005AC35E /* Views */,
+				C031D709287D4E33005AC35E /* ViewModels */,
 				C01A140A282CC43F000B12E1 /* Service */,
 				C01A1409282CC43A000B12E1 /* Models */,
-				C07D6EB42817D7F700EB716F /* CollectionViewCell */,
-				C07D6EB32817D7EF00EB716F /* TableViewCell */,
 				C00BAD7C27E9F65700134BEA /* App */,
 				C00BAD6F27E97FE400134BEA /* Info.plist */,
 				C0524235283107100034B66B /* GoogleService-Info.plist */,
@@ -162,20 +163,6 @@
 				C00BAD6127E97FD900134BEA /* AppDelegate.swift */,
 			);
 			path = App;
-			sourceTree = "<group>";
-		};
-		C00BAD7D27E9F67800134BEA /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				C00BAD6527E97FD900134BEA /* SearchViewController.swift */,
-				C0F5677327EAE3850039E49A /* MainViewController.swift */,
-				C065DE032830A0CF000AD2C3 /* LoginViewController.swift */,
-				C065DE052830A49F000AD2C3 /* SignUpViewController.swift */,
-				C09D072328336E88007D527B /* BookmarkViewController.swift */,
-				C0E74BC52834C6A800335FE7 /* SettingViewController.swift */,
-				C04DDB2F2838058C00A2F14E /* FindPwdViewController.swift */,
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		C00BAD8427EA218900134BEA /* Extensions */ = {
@@ -206,6 +193,30 @@
 				C00BAD7627E981E900134BEA /* Service.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		C031D709287D4E33005AC35E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C031D70A287D4E45005AC35E /* LoginViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		C031D70C287D4F4F005AC35E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C07D6EB32817D7EF00EB716F /* TableViewCell */,
+				C07D6EB42817D7F700EB716F /* CollectionViewCell */,
+				C00BAD6527E97FD900134BEA /* SearchViewController.swift */,
+				C0F5677327EAE3850039E49A /* MainViewController.swift */,
+				C065DE032830A0CF000AD2C3 /* LoginViewController.swift */,
+				C065DE052830A49F000AD2C3 /* SignUpViewController.swift */,
+				C09D072328336E88007D527B /* BookmarkViewController.swift */,
+				C0E74BC52834C6A800335FE7 /* SettingViewController.swift */,
+				C04DDB2F2838058C00A2F14E /* FindPwdViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		C07D6EB32817D7EF00EB716F /* TableViewCell */ = {
@@ -392,6 +403,7 @@
 				C065DE062830A49F000AD2C3 /* SignUpViewController.swift in Sources */,
 				C00082FE281F8A9C006D61C1 /* SliderCollectionViewCell.swift in Sources */,
 				C00BAD8A27EA21B900134BEA /* UIColor + Extension.swift in Sources */,
+				C031D70B287D4E45005AC35E /* LoginViewModel.swift in Sources */,
 				C00BAD6627E97FD900134BEA /* SearchViewController.swift in Sources */,
 				C09A6EFB281A48F700DCCEFD /* UISearchBar + Extension.swift in Sources */,
 				C00BAD6227E97FD900134BEA /* AppDelegate.swift in Sources */,

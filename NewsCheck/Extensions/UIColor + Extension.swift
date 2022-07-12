@@ -10,9 +10,9 @@ import UIKit
 extension UIColor {
     
     static let mainColor = UIColor(hex: 0xF5B309)
-    static let fontColorGray = UIColor(hex: 0x939393)
-    static let fontColorBlack = UIColor(hex: 0x262626)
-    static let lightBGColor = UIColor(hex: 0xFAFAFA)
+    static let lightFontColor = UIColor(hex: 0xbdbdbd)
+    static let darkFontColor = UIColor(hex: 0x828282)
+    static let backgroundColor = UIColor(hex: 0x1E1E1E)
     
     convenience init(red: Int, green: Int, blue: Int, a: CGFloat = 1.0) {
         self.init(
